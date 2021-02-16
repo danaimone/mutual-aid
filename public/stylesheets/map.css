@@ -11,6 +11,9 @@
     ". Map-Text Map-Text ."
     ". . . .";
 }
+body {
+  margin: 0px;
+}
 .Title {
 grid-area: Title;
 }
@@ -33,7 +36,10 @@ grid-area: Map-Text;
   width: 100%;
 }
 
-.Header button {
+.SignIn button {
   margin: 5px;
+  height: 20px;
+  position: absolute;
   background-color: #FFFF;
+  right:0;
 }
