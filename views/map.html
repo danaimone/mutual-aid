@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" href="map.css">
+    <title>Mutual Aid Map</title>
+</head>
+  <body>
+  <div class="grid-container">
+  <div class="Title">
+  <CENTER>
+  <h3 style="color: #9d4edd; font-family:Georgia">Mutual Aid Map</h3>
+  </CENTER>
+  </div>
+  <div class="Header">
+    <button>Home</button>
+    <button>Sign in</button>
+  </div>
+  <div class="Map">
+    <div id="map"></div>
+  </div>
+  <div class="Map-Text">
+  <CENTER>
+    <p style="color:#9d4edd;">
+    Scroll over a map marker to view each Mutual Aid Group near you. Click on the marker to set this as your new location!
+    </p>
+    </CENTER>
+  </div>
+</div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIwzALxUPNbatRBj3Xi1Uhp0fFzwWNBkE&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+  </body>
+</html>
