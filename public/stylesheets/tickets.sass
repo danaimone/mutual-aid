@@ -1,0 +1,154 @@
+$primary: #7dceb4
+$secondary: #7f58cc
+$primary-compliment: #6fad9a
+$secondary-compliment: #614599
+$gray: #f5f5f5
+
+*
+  font-family: arial
+  margin: auto
+  padding: 0
+  color: white
+
+button
+  border: none
+  outline: none
+  transition: all 200ms linear
+
+nav
+  background-color: $primary
+  padding: 1rem
+  height: 5vh
+
+  ul
+    margin: 0
+    padding: 0
+    list-style: none
+
+  li
+    display: inline-block
+
+  a
+    display: block
+    padding: 6px 12px
+    text-decoration: none
+
+#ticket-wrapper
+  background-color: white
+  height: 90vh
+
+  display: grid
+  grid-template-columns: 1fr 4fr
+  grid-template-rows: 7vh 2fr
+
+#ticket-actions
+  margin: 0
+  padding: 2rem
+  grid-column: 1 / 2
+  grid-row: 1 / 3
+
+  ul
+    list-style: none
+
+.action-button
+  border-radius: 10px
+  padding: 0.5rem
+  margin: 0.25rem
+  &.primary
+    background-color: $primary
+    box-shadow: 0 3px $primary-compliment
+    &:hover
+      background-color: $primary-compliment
+
+  &.secondary
+    background-color: $secondary
+    box-shadow: 0 3px $secondary-compliment
+    &:hover
+      background-color: $secondary-compliment
+
+  &:active
+    background-color: green
+
+#no-tickets
+  padding: 0.5rem 1rem 0.5rem 1rem
+  margin-top: 1rem
+  background-color: $secondary
+  border-radius: 5px
+  grid-row: 1 span 2
+
+#tickets
+  color: black
+  display: flex
+  flex-flow: row wrap
+  margin: 0
+  grid-column: 2 / 3
+  grid-row: 2 / 3
+
+.ticket
+  flex: initial
+  color: black
+  background-color: $gray
+  box-shadow: 2px 2px 5px lightgray
+  margin: 1rem 1rem 0 1rem
+  padding: 1rem
+  height: 20vw
+  width: 20vw
+
+  transition: all 200ms linear
+
+.ticket-grid
+  height: 100%
+  width: 100%
+  text-align: left
+  display: grid
+  grid-template-columns: 0.8fr 2.2fr 0.4fr
+  grid-template-rows: 0.7fr 0.2fr 2.5fr 0.6fr
+  gap: 0px 0px
+
+.ticket-username
+  height: 100%
+  width: 100%
+  padding: 0.5rem 0 0 1rem
+  grid-area: 1 / 2 / 2 / 4
+  color: $secondary
+  h2
+    font-size: 1.2 vw
+    color: $secondary
+
+.ticket-type
+  height: 100%
+  width: 100%
+  font-size: 1.2vw
+  padding: 0 0 0 1rem
+  grid-area: 2 / 2 / 3 / 4
+  color: $secondary
+
+.ticket-picture
+  height: 3.5em
+  width: 3.5em
+  text-align: center
+  grid-area: 1 / 1 / 3 / 2
+  background-color: $secondary
+  border-radius: 50%
+
+.ticket-main-text
+  height: 100%
+  width: 100%
+  padding: 0.5rem 0 0 0
+  grid-area: 3 / 1 / 5 / 4
+  color: black
+  font-size: 1.25vw
+
+.ticket-contribute
+  grid-area: 4 / 3 / 5 / 4
+  will-change: transform
+
+  button
+    font-size: 1.5vw
+    height: 2.5vw
+    width: 2.5vw
+    background-color: $primary
+    border-radius: 50%
+
+    &:hover
+      transform: translateY(-3px)
