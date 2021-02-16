@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="faq.css">
+    <title>FAQ Page</title>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="info">
+            <div class="tab">
+                <button class="tablinks" id='defaultOpen' onclick="openTab(event, 'Request')">Request</button>
+                <button class="tablinks" onclick="openTab(event, 'Volunteer')">Volunteer</button>
+                <button class="tablinks" onclick="openTab(event, 'Organize')">Organize</button>
+            </div>
+            <div id="Request" class="tabcontent">
+                <h3>How can I seek help?</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia consectetur deleniti cupiditate
+                    aliquid obcaecati. Reprehenderit explicabo laboriosam praesentium, obcaecati, dolore repellendus,
+                    voluptas expedita modi sint fugiat quisquam laudantium? Sunt, magni.</p>
+            </div>
+            <div id="Volunteer" class="tabcontent">
+                <h3>How can I give help?</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit consequuntur sequi autem quis
+                    quidem veritatis voluptates! Asperiores rem quos iure incidunt quia nam tempore, consectetur
+                    delectus assumenda pariatur temporibus debitis!</p>
+            </div>
+            <div id="Organize" class="tabcontent">
+                <h3>What are other ways to get involved?</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis quod quos nihil distinctio
+                    architecto odio, numquam fuga, quasi rem velit officia explicabo exercitationem consequuntur
+                    pariatur vitae iste. Impedit, voluptas ducimus?</p>
+            </div>
+
+        </div>
+        <div class="title_faq">
+            <h2>Frequently asked Questions</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit qui earum praesentium. Rerum repudiandae
+                officia optio alias ullam quos nobis! Alias doloribus vitae commodi quasi dolor vero eos aliquam
+                possimus.</p>
+        </div>
+        <div class="footer">
+            <p> This is the footer. </p>
+        </div>
+        <div class="Header">
+            <div class="title">
+                <h1>Mutual Aid</h1>
+            </div>
+            <div class="nav">
+                <button>Home</button>
+                <button>Sign in</button>
+                <button>=</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // open tab first
+        document.getElementById("defaultOpen").click();
+
+        //function to switch tabs
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            //set all tabs to display none
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
