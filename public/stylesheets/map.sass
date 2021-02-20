@@ -1,0 +1,37 @@
+.grid-container
+  display: grid
+  grid-template-columns: 0.4fr 1.7fr 1.7fr 0.4fr
+  grid-template-rows: 0.3fr 0.4fr 4.2fr 0.9fr 0.9fr 0.3fr
+  gap: 0 0
+  grid-template-areas: "Header Header Header Header" ". Title Title ." ". Map Map ." ". Map Map ." ". Map-Text Map-Text ." ". . . ."
+
+body
+  margin: 0
+
+.Title
+  grid-area: Title
+
+.Header
+  background-color: #7dceb4
+  grid-area: Header
+  display: flex
+  justify-content: left
+  //align-items: left //TODO: mismatch CSS value - Dan
+
+.Map
+  grid-area: Map
+
+.Map-Text
+  grid-area: Map-Text
+
+#map
+  height: 450px
+  width: 100%
+
+.SignIn
+  button
+    margin: 5px
+    height: 20px
+    position: absolute
+    background-color: #FFFF
+    right: 0
