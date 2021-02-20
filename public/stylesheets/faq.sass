@@ -1,0 +1,79 @@
+body, html, .grid-container
+  margin: 0
+  display: grid
+  height: 100%
+  width: 100%
+  font-family: Arial, Helvetica, sans-serif
+
+.grid-container
+  display: grid
+  grid-template-columns: 0.7fr 2fr 1fr
+  grid-template-rows: 0.3fr 2.3fr 0.4fr
+  gap: 0px 0px
+  grid-template-areas: "Header Header Header" "title_faq info none" "footer footer footer"
+  background-color: #fff
+
+.info
+  grid-area: info
+  padding: 8%
+  padding-top: 4%
+
+.title_faq
+  grid-area: title_faq
+  background-color: #F3F3F3
+  padding: 8%
+  padding-top: 3%
+  box-shadow: 2px 2px 5px rgb(228, 228, 228)
+  h2
+    color: #9D80D6
+.footer
+  grid-area: footer
+  background-color: #404040
+  color: white
+.Header
+  display: grid
+  grid-template-columns: 0.9fr 1.1fr 1fr
+  grid-template-rows: 1fr
+  gap: 0px 0px
+  grid-template-areas: "title . nav"
+  grid-area: Header
+  background-color: #7dceb4
+  color: white
+.title
+  grid-area: title
+  display: flex
+  padding-left: 5%
+  align-items: center
+.nav
+  grid-area: nav
+  display: flex
+  justify-content: center
+  align-items: center
+
+.tab
+  overflow: hidden
+  width: 100%
+  border-bottom: 1px solid #7B7B7B
+
+.tab
+  button
+    background-color: inherit
+    float: left
+    border: none
+    outline: none
+    cursor: pointer
+    padding: 14px 16px
+    transition: 0.3s
+    color: #E3DAF4
+    font-size: xx-large
+    &:hover
+      color: #9D80D6
+    &.active
+      color: #9D80D6
+      border-bottom: 3px solid #7B7B7B
+
+.tabcontent
+  display: none
+  padding: 6px 12px
+  -webkit-animation: fadeEffect 1s
+  animation: fadeEffect 2s
