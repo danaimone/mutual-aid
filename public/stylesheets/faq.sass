@@ -1,9 +1,18 @@
+$primary: #7dceb4
+$secondary: #7f58cc
+$primary-compliment: #6fad9a
+$secondary-compliment: #614599
+$gray: #f5f5f5
+$dark-gray: #404040
+$dark-gray-compliment: #404040
+$font-family: Arial, Helvetica, sans-serif
+
 body, html, .grid-container
   margin: 0
   display: grid
   height: 100%
   width: 100%
-  font-family: Arial, Helvetica, sans-serif
+  font-family: $font-family
 
 .grid-container
   display: grid
@@ -20,15 +29,15 @@ body, html, .grid-container
 
 .title_faq
   grid-area: title_faq
-  background-color: #F3F3F3
+  background-color: $gray
   padding: 8%
   padding-top: 3%
   box-shadow: 2px 2px 5px rgb(228, 228, 228)
   h2
-    color: #9D80D6
+    color: $secondary
 .footer
   grid-area: footer
-  background-color: #404040
+  background-color: $dark-gray
   color: white
 .Header
   display: grid
@@ -37,7 +46,7 @@ body, html, .grid-container
   gap: 0px 0px
   grid-template-areas: "title . nav"
   grid-area: Header
-  background-color: #7dceb4
+  background-color: $primary
   color: white
 .title
   grid-area: title
@@ -64,13 +73,13 @@ body, html, .grid-container
     cursor: pointer
     padding: 14px 16px
     transition: 0.3s
-    color: #E3DAF4
+    color: $secondary
     font-size: xx-large
     &:hover
-      color: #9D80D6
+      color: $secondary-compliment
     &.active
-      color: #9D80D6
-      border-bottom: 3px solid #7B7B7B
+      color: $secondary-compliment
+      border-bottom: 3px solid $dark-gray-compliment
 
 .tabcontent
   display: none
