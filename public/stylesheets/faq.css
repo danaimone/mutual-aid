@@ -1,145 +1,91 @@
-/* Vars with sass?
-
-$primary-color
-$secondary-color
-$title-font-color
-
-
-*/
-
 body, html, .grid-container {
-    margin: 0;
-    display: grid;
-
-    height: 100%;
-    width: 100%;
-    font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .grid-container {
-    display: grid;
-    grid-template-columns: 0.7fr 2fr 1fr;
-    grid-template-rows: 0.3fr 2.3fr 0.4fr;
-    gap: 0px 0px;
-    grid-template-areas: "Header Header Header" 
-                          "title_faq info none" 
-                          "footer footer footer";
-    background-color: #fff;
+  display: grid;
+  grid-template-columns: 0.7fr 2fr 1fr;
+  grid-template-rows: 0.3fr 2.3fr 0.4fr;
+  gap: 0px 0px;
+  grid-template-areas: "Header Header Header" "title_faq info none" "footer footer footer";
+  background-color: #fff;
 }
 
 .info {
-    grid-area: info;
-    padding: 8%;
-    padding-top: 4%;
+  grid-area: info;
+  padding: 8%;
+  padding-top: 4%;
 }
 
 .title_faq {
-    grid-area: title_faq;
-    background-color: #F3F3F3;
-    padding: 8%;
-    padding-top: 3%;
-    box-shadow: 2px 2px 5px rgb(228, 228, 228);
-
+  grid-area: title_faq;
+  background-color: #f5f5f5;
+  padding: 8%;
+  padding-top: 3%;
+  box-shadow: 2px 2px 5px #e4e4e4;
 }
-
 .title_faq h2 {
-    color: #9D80D6;
-}
-
-.footer {
-    grid-area: footer;
-    background-color: #404040;
-    color: white;
+  color: #7f58cc;
 }
 
 .Header {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 0px 0px;
-    grid-template-areas: "title . nav";
-    grid-area: Header;
-    background-color: #7dceb4;
-    color: white;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: "title . nav";
+  grid-area: Header;
+  background-color: #7dceb4;
+  color: white;
 }
 
 .title {
-    grid-area: title;
-    display: flex;
-    padding-left: 5%;
-    align-items: center;
+  grid-area: title;
+  display: flex;
+  padding-left: 5%;
+  align-items: center;
 }
 
 .nav {
-    grid-area: nav;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  grid-area: nav;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-/* Fade in tabs */
-
-@-webkit-keyframes fadeEffect {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeEffect {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Style the tab */
 
 .tab {
-    overflow: hidden;
-    width: 100%;
-    
-    border-bottom: 1px solid #7B7B7B;
+  overflow: hidden;
+  width: 100%;
+  border-bottom: 1px solid #7B7B7B;
 }
-
-/* Style the buttons that are used to open the tab content */
 
 .tab button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    color: #E3DAF4;
-    font-size: xx-large;
-
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  color: #7f58cc;
+  font-size: xx-large;
 }
-
-/* Change background color of buttons on hover */
-
 .tab button:hover {
-    color: #9D80D6;
+  color: #614599;
 }
-
-/* Create an active/current tablink class */
-
 .tab button.active {
-    color: #9D80D6;
-    border-bottom: 3px solid #7B7B7B;
+  color: #614599;
+  border-bottom: 3px solid #404040;
 }
-
-/* Style the tab content */
 
 .tabcontent {
-    display: none;
-    padding: 6px 12px;
-    
-    -webkit-animation: fadeEffect 1s;
-    animation: fadeEffect 2s;
+  display: none;
+  padding: 6px 12px;
+  -webkit-animation: fadeEffect 1s;
+  animation: fadeEffect 2s;
 }
+
+/*# sourceMappingURL=faq.css.map */
