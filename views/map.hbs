@@ -1,0 +1,27 @@
+<head>
+    <title>Mutual Aid Map</title>
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/map.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+</head>
+<body>
+{{> header}}
+<div class="grid-container">
+    <div class="Map">
+        <div id="map"></div>
+    </div>
+    <div class="Map-Text">
+        <p>
+            Scroll over a map marker to view each Mutual Aid Group near you. Click on the marker to set this as your new location!
+        </p>
+    </div>
+</div>
+
+{{> footer}}
+
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIwzALxUPNbatRBj3Xi1Uhp0fFzwWNBkE&callback=initMap&libraries=&v=weekly"
+        async
+></script>
+</body>

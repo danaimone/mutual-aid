@@ -1,45 +1,45 @@
+* {
+  font-family: Arial, Helvetica, sans-serif; }
+
 .grid-container {
   display: grid;
   grid-template-columns: 0.4fr 1.7fr 1.7fr 0.4fr;
   grid-template-rows: 0.3fr 0.4fr 4.2fr 0.9fr 0.9fr 0.3fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    "Header Header Header Header"
-    ". Title Title ."
-    ". Map Map ."
-    ". Map Map ."
-    ". Map-Text Map-Text ."
-    ". . . .";
-}
+  gap: 0 0;
+  grid-template-areas: "Header Header Header Header" ". Title Title ." ". Map Map ." ". Map Map ." ". Map-Text Map-Text ." ". . . ."; }
+
 body {
-  margin: 0px;
-}
+  margin: 0; }
+
 .Title {
-grid-area: Title;
-}
+  grid-area: Title; }
+
 .Header {
-background-color: #7dceb4;
-grid-area: Header;
-display: flex;
-    justify-content: left;
-    align-items: left;
-}
+  background-color: #7dceb4;
+  grid-area: Header;
+  display: flex;
+  justify-content: left; }
+  .Header h3 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif; }
+
 .Map {
-grid-area: Map;
-}
+  grid-area: Map; }
+
 .Map-Text {
-grid-area: Map-Text;
-}
+  grid-area: Map-Text;
+  margin: 0 auto;
+  color: #7f58cc; }
 
 #map {
   height: 450px;
-  width: 100%;
-}
+  width: 100%; }
 
 .SignIn button {
   margin: 5px;
   height: 20px;
   position: absolute;
   background-color: #FFFF;
-  right:0;
-}
+  right: 0; }
+
+/*# sourceMappingURL=map.css.map */

@@ -16,9 +16,9 @@ body, html, .grid-container
 .grid-container
   display: grid
   grid-template-columns: 0.7fr 2fr 1fr
-  grid-template-rows: 0.3fr 2.3fr 0.4fr
+  grid-template-rows: 2.3fr 0.3fr
   gap: 0px 0px
-  grid-template-areas: "Header Header Header" "title_faq info none" "footer footer footer"
+  grid-template-areas: "title_faq info none" "footer footer footer"
   background-color: #fff
 
 .info
@@ -34,15 +34,7 @@ body, html, .grid-container
   box-shadow: 2px 2px 5px rgb(228, 228, 228)
   h2
     color: $secondary
-.Header
-  display: grid
-  grid-template-columns: 0.9fr 1.1fr 1fr
-  grid-template-rows: 1fr
-  gap: 0px 0px
-  grid-template-areas: "title . nav"
-  grid-area: Header
-  background-color: $primary
-  color: white
+
 .title
   grid-area: title
   display: flex
