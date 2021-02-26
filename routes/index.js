@@ -7,7 +7,11 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/tickets', function(req, res, next) {
-  res.render('tickets', { title: 'Tickets', layout: false} );
+  res.render('tickets', { title: 'Tickets', layout: 'tickets'} );
+});
+
+router.get('/faq', function(req, res, next) {
+  res.render('faq', { title: 'Tickets', layout: 'faq'} );
 });
 
 

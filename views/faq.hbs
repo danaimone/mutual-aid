@@ -4,11 +4,15 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="faq.css">
+    <link rel="stylesheet" href="/stylesheets/faq.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
     <title>FAQ Page</title>
 </head>
 
 <body>
+    {{> header}}
+
     <div class="grid-container">
         <div class="info">
             <div class="tab">
@@ -42,20 +46,9 @@
                 officia optio alias ullam quos nobis! Alias doloribus vitae commodi quasi dolor vero eos aliquam
                 possimus.</p>
         </div>
-        <div class="footer">
-            <p> This is the footer. </p>
-        </div>
-        <div class="Header">
-            <div class="title">
-                <h1>Mutual Aid</h1>
-            </div>
-            <div class="nav">
-                <button>Home</button>
-                <button>Sign in</button>
-                <button>=</button>
-            </div>
-        </div>
     </div>
+
+    {{> footer}}
 
     <script>
         // open tab first
