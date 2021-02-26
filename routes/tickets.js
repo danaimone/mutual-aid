@@ -1,8 +1,16 @@
-var express = require('express');
-var router = express.Router();
+/* Routing for Tickets page */
 
-router.get('/tickets', function(req, res, next) {
-  res.render('tickets', { title: 'Tickets', layout: false} );
-});
+module.exports = function(app){
+  /* Get web page */
+  app.get('/tickets', function(req, res){
+    res.render('tickets', {
+      title: 'Tickets - Mutual Aid',
+      layout: 'tickets'
+    });
+  });
 
-module.exports = router;
+
+}
+
+
+
