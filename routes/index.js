@@ -3,11 +3,22 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Mutual Aid' });
+  res.render('index', { title: 'Mutual Aid' , layout: false});
 });
 
+/* GET Tickets page. */
 router.get('/tickets', function(req, res, next) {
   res.render('tickets', { title: 'Tickets', layout: false} );
+});
+
+/* GET FAQ page. */
+router.get('/faq', function(req, res, next) {
+  res.render('faq', { title: 'faq', layout: false} );
+});
+
+/* GET Map page. */
+router.get('/map', function(req, res, next) {
+  res.render('map', { title: 'Map - Mutual Aid', layout: false} );
 });
 
 
