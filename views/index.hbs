@@ -1,41 +1,40 @@
-<html>
-<head>
-    <title>{{title}}</title>
-    <link rel="stylesheet" href="/stylesheets/index.css">
-</head>
-<body>
-
-<nav>
-    <ul>
-        <li>
-            <h1><a href='#'>Mutual Aid</a></h1>
-        </li>
-    </ul>
-</nav>
+<!DOCTYPE html>
 
 
+<html lang="en">
+    <head>
+        <title>{{title}}</title>
+        <link rel="stylesheet" href="/stylesheets/index.css">
+        <link rel="stylesheet" href="/stylesheets/header.css">
+        <link rel="stylesheet" href="/stylesheets/footer.css">
+    </head>
+    <body>
 
-<div id="grid-container">
-    <div id="welcome">
-        <h1>Welcome</h1>
-        <p>Please Select the following to navigate the page:</p>
+    {{> header}}
+
+    <div id="grid-container">
+        <div id="welcome">
+            <h1>Welcome</h1>
+            <p>Please Select the following to navigate the page:</p>
+        </div>
+        <div id="buttons">
+            <div id="page-1">
+                <h3><a href="/faq">FAQ</a></h3>
+            </div>
+            <div id="page-2">
+                <h3><a href="/login">Login Page</a></h3>
+            </div>
+            <div id="page-3">
+                <h3><a href="/map">Map Page</a></h3>
+            </div>
+            <div id="page-4">
+                <h3><a href="/tickets">Tickets Page</a></h3>
+            </div>
+
+        </div>
     </div>
-    <div id="buttons">
-        <div id="page-1">
-            <h3><a href="/faq">FAQ</a></h3>
-        </div>
-        <div id="page-2">
-            <h3><a href="/login">Login Page</a></h3>
-        </div>
-        <div id="page-3">
-            <h3><a href="/map">Map Page</a></h3>
-        </div>
-        <div id="page-4">
-            <h3><a href="/tickets">Tickets Page</a></h3>
-        </div>
 
-    </div>
-</div>
+    {{> footer}}
 
-</body>
+    </body>
 </html>
