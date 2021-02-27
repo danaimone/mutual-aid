@@ -2,26 +2,20 @@
   font-family: Arial, Helvetica, sans-serif; }
 
 .grid-container {
+  margin: 0 0 6rem 0;
   display: grid;
   grid-template-columns: 0.4fr 1.7fr 1.7fr 0.4fr;
-  grid-template-rows: 0.3fr 0.4fr 4.2fr 0.9fr 0.9fr 0.3fr;
+  grid-template-rows: 0.4fr 4.2fr 0.9fr 0.9fr 0.3fr;
   gap: 0 0;
-  grid-template-areas: "Header Header Header Header" ". Title Title ." ". Map Map ." ". Map Map ." ". Map-Text Map-Text ." ". . . ."; }
+  grid-template-areas: ". Title Title ." ". Map Map ." ". Map Map ." ". Map-Text Map-Text ." ". . . ."; }
 
 body {
   margin: 0; }
 
 .Title {
-  grid-area: Title; }
-
-.Header {
-  background-color: #7dceb4;
-  grid-area: Header;
-  display: flex;
-  justify-content: left; }
-  .Header h3 {
-    color: white;
-    font-family: Arial, Helvetica, sans-serif; }
+  grid-area: Title;
+  text-align: center;
+  color: #7f58cc; }
 
 .Map {
   grid-area: Map; }

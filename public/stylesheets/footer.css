@@ -1,15 +1,43 @@
-* {
-  font-family: Arial, Helvetica, sans-serif; }
-
 .footer {
+  margin: auto;
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
+  right: 0;
   height: 5rem;
   background-color: #404040;
-  color: white; }
-  .footer p {
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "name socials disclaimer"; }
+
+.name {
+  grid-area: name;
+  text-align: left;
+  padding: 1rem;
+  margin: auto 0; }
+
+.socials {
+  margin: auto;
+  padding: inherit;
+  grid-area: socials;
+  top: 0;
+  bottom: 0; }
+  .socials .social-icon {
+    width: 1.5rem;
+    padding: 0 1rem;
+    height: inherit; }
+  .socials a {
+    text-align: center;
+    text-decoration: none; }
+
+.disclaimer {
+  margin: 0;
+  grid-area: disclaimer;
+  text-align: right;
+  margin: auto 0; }
+  .disclaimer p {
     margin: 1em; }
 
 /*# sourceMappingURL=footer.css.map */
