@@ -13,6 +13,7 @@
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "node-sass-middleware": "0.11.0",
-    "sass": "^1.32.8"
+    "sass": "^1.32.8",
+    "tedious": "^11.0.5"
   }
 }
