@@ -5,9 +5,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
-
+var bodyParser=require('body-parser');
+var connection = require('./config');
 var indexRouter = require('./routes/index');
 var ticketsRouter = require('./routes/tickets');
+var authenticateController=require('./controllers/authenticate-controller');
+var registerController=require('./controllers/register-controller');
 
 
 var app = express();
@@ -43,6 +46,11 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -53,5 +61,14 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+/* route to handle login and registration */
+app.post('/api/register',registerController.register);
+app.post('/api/authenticate',authenticateController.authenticate);
+
+console.log(authenticateController);
+app.post('/controllers/register-controller', registerController.register);
+app.post('/controllers/authenticate-controller', authenticateController.authenticate);
+
 
 module.exports = app;
