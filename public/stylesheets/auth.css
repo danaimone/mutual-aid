@@ -1,0 +1,63 @@
+
+
+.titleContent h3 {
+  color: #7dceb4;
+}
+
+.descriptionContent h3 {
+  color: #7dceb4;
+}
+
+  input#title {
+    border: none;
+    border-bottom: 1px solid gray;
+}
+
+input#description {
+  border: none;
+  border-bottom: 1px solid gray;
+}
+
+.submit input {
+    border-radius: 10px;
+    padding: 0.5rem;
+    margin: 0.25rem;
+    background-color: #7f58cc;
+    box-shadow: 0 3px #614599; }
+
+.submit input:hover {
+  background-color: #614599; }
+
+.titleContent {
+  margin-bottom: 15px;
+}
+.descriptionContent {
+  margin-bottom: 15px;
+}
+.headerPortion {
+  margin-bottom: 15px;
+}
+
+.headerPortion h1 {
+  color: #7dceb4;
+}
+
+.titleContent input {
+ border-top-style: hidden;
+ border-right-style: hidden;
+ border-left-style: hidden;
+ border-bottom-style: groove;
+  color: #000000;
+  font-size: 14px;
+}
+.descriptionContent input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  color: #000000;
+  font-size: 14px;
+}
+.no-outline:focus {
+  outline: none;
+}
