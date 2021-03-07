@@ -18,8 +18,8 @@
     "morgan": "~1.9.1",
     "mysql": "^2.13.0",
     "node-sass-middleware": "0.11.0",
+    "popups": "^1.1.3",
     "sass": "^1.32.8",
     "tedious": "^11.0.5"
-    "popups": "^1.1.3",
   }
 }
