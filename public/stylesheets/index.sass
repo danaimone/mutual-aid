@@ -3,40 +3,57 @@ $secondary: #7f58cc
 $primary-compliment: #6fad9a
 $secondary-compliment: #614599
 $gray: #f5f5f5
+$dark-gray: #404040
+$dark-gray-compliment: #404040
 $font-family: Arial, Helvetica, sans-serif
 
-*
+body, html, .grid-container
+  margin: 0
+  height: 100%
+  width: 100%
   font-family: $font-family
-  margin: auto
-  padding: 0
 
-#grid-container
-  display: grid
-  grid-template-columns: 1fr
-  grid-template-rows: 1fr 2fr
-  gap: 0 0
+body, html
+  margin: 0
   height: 100%
 
-#welcome
-  grid-area: 1 / 1 / 2 / 2
-  color: $secondary
-  padding: 2rem
-  align-items: center
-  text-align: center
-
-#buttons
+.grid-container
   display: grid
-  grid-template-columns: 1fr 1fr 1fr 1fr
-  grid-template-rows: 0.6fr 1.4fr
-  gap: 0 0
-  grid-area: 2 / 1 / 3 / 2
-  width: 100%
-  padding: 3rem 0
+  grid-template-columns: 1fr 1.5fr
+  grid-template-rows: 1fr
+  gap: 0px 0px
+  grid-template-areas: "title_faq info"
+  background-color: #fff
+  height: 85%
+
+
+.infoBlock
+  display: inline-block
+  align-items: center
+  align-content: center
+  grid-area: info
+  padding: 8%
+  padding-top: 4%
+  .imageLogo
+    display: block
+    margin-right: auto
+    margin-left: auto
+    width: 20%
+    padding-bottom: 5%
+    padding-top: 5%
+  .imageTicket
+    display: block
+    margin-right: auto
+    margin-left: auto
+    width: 45%
+    padding-bottom: 5%
+    padding-top: 5%
   a
+
     color: white
     border-radius: 10px
     padding: 0.5rem
-    margin: 0.25rem
+    margin: 0
     text-decoration: none
     background-color: $primary
     box-shadow: 0 3px $primary-compliment
@@ -45,16 +62,26 @@ $font-family: Arial, Helvetica, sans-serif
     &:active
     background-color: $primary
 
-#page-1
-  grid-area: 1 / 1 / 2 / 2
+.welcomeBlock
   display: flex
-#page-2
-  grid-area: 1 / 2 / 2 / 3
-  display: flex
-#page-3
-  grid-area: 1 / 3 / 2 / 4
-  display: flex
-#page-4
-  grid-area: 1 / 4 / 2 / 5
-  display: flex
+  grid-area: title_faq
+  background-color: $gray
+  padding: 8%
+  padding-top: 3%
+  box-shadow: 2px 2px 5px rgb(228, 228, 228)
+  align-items: center
+  justify-content: center
 
+  .welcomeContent
+    display: block
+    text-align: center
+  h1
+    color: $secondary
+  p
+    font-size: 1.5em
+
+//.title
+//  grid-area: title
+//  display: flex
+//  padding-left: 5%
+//  align-items: center
