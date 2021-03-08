@@ -59,15 +59,19 @@ app.use(function(err, req, res, next) {
 });
 
 /* Controllers for javascript forms and database connection */
-var authenticateController=require('./public/controllers/authenticate-controller');
-var registerController=require('./public/controllers/register-controller');
+let authenticateController=require('./public/controllers/authenticate-controller');
+let registerController=require('./public/controllers/register-controller');
+let ticketsController=require('./public/controllers/tickets-controller');
 
 /* route to handle login and registration */
+/*
 app.post('/api/register',registerController.register);
 app.post('/api/authenticate',authenticateController.authenticate);
+app.post('/api/createTicket', ticketsController.createTicket);
 
-console.log(authenticateController);
 app.post('/controllers/register-controller', registerController.register);
 app.post('/controllers/authenticate-controller', authenticateController.authenticate);
+app.post('/controllers/tickets-controller', ticketsController.createTicket);
+ */
 
 module.exports = app;

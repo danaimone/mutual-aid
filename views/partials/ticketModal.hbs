@@ -1,0 +1,72 @@
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class ="headerPortion">
+            <h1> Add A Ticket </h1>
+        </div>
+        <div class="form-content">
+            <form action="tickets-controller.js" method="POST" id="ticketForm">
+            <div class = "radioButtons">
+                <label class="radio-inline">
+                    <input type="radio" name="typeradio" value="request" checked>Request
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="typeradio" value="service">Service
+                </label>
+            </div>
+            <div class = "titleContent">
+                <h3> Title </h3>
+                <input type="text" class = "no-outline" size="40" name="title" placeholder="Ticket title..." id="title">
+            </div>
+            <div class = "descriptionContent">
+                <h3> Description </h3>
+                <textarea name="description" rows="5" cols="45" class="no-outline" placeholder="Ticket description..." id="description"></textarea>
+            </div>
+            <div class = "payments">
+                <div class = "paymentOption" id ="paymentCheck">
+                    <input type="checkbox" id="payment" name = "usePayment" >
+                    <label for="payment"> Request payment?</label><br>
+                </div>
+                <div class = "paymentOption" id= "menu">
+                        <label for="payment">Payment Method:</label>
+                        <select name="payment" id="payment" style="color: #000000;">
+                            <option value="venmo">Venmo</option>
+                            <option value="cashapp">Cash App</option>
+                        </select>
+                        <br><br>
+                </div>
+            </div>
+            <div class = "profileCheck">
+                <input type="checkbox" id="profile" name="profile" >
+                <label for="profile"> Anonymous Post?</label><br>
+            </div>
+            <div class = "submitButton" style= "float: right;">
+                <li><button form="ticketForm" type="submit" class="action-button secondary" id="submitPost">ADD TICKET</button></li>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("modalButton");
+    var span = document.getElementsByClassName("close")[0];
+    var submit = document.getElementById("submitPost");
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    submit.onclick = function() {
+        modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>

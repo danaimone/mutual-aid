@@ -13,9 +13,13 @@
 li {
   list-style: none; }
 
+textarea {
+  resize: none;
+  color: black; }
+
 .form-content {
   margin: 0 auto;
-  width: 50%;
+  width: 75%;
   text-align: center; }
 
 /* Modal Content/Box */
@@ -25,7 +29,7 @@ li {
   padding: 20px;
   border: 1px solid #404040;
   width: 35%;
-  height: auto; }
+  height: 45%; }
   .modal-content p {
     color: #7dceb4; }
   .modal-content h3 {

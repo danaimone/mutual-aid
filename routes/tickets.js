@@ -1,4 +1,6 @@
 /* Routing for Tickets page */
+let router = require('./index')
+let ticketsController=require("../public/controllers/tickets-controller");
 
 module.exports = function(app){
   app.get('/tickets', function(req, res){
@@ -7,8 +9,7 @@ module.exports = function(app){
       layout: 'tickets'
     });
   });
+
+  router.post('/tickets-controller.js', ticketsController.createTicket);
 }
-
-
-
 

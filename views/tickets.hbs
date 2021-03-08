@@ -170,79 +170,8 @@
     </div>
 </div>
 
+{{> ticketModal}}
+
 {{> footer}}
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-  <!-- Modal content -->
-  <div class="modal-content">
-  <span class="close">&times;</span>
-    <div class ="headerPortion">
-      <h1> Add A Ticket </h1>
-    </div>
-    <div class = "radioButtons">
-      <form>
-        <label class="radio-inline">
-          <input type="radio" name="optradio" checked>Request
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="optradio">Service
-        </label>
-      </form>
-    </div>
-    <div class = "titleContent">
-      <h3> Title </h3>
-      <input type="text" class = "no-outline" name = "title" placeholder="Ticket title..." id = "title">
-    </div>
-    <div class = "descriptionContent">
-      <h3> Description </h3>
-      <input type="text" name = "description" class = "no-outline" placeholder="Ticket description..." id = "description">
-    </div>
-    <div class = "payments">
-      <div class = "paymentOption" id ="paymentCheck">
-        <input type="checkbox" id="payment" name = "payment" >
-        <label for="payment"> Request payment?</label><br>
-      </div>
-      <div class = "paymentOption" id= "menu">
-        <form action="/action_page.php">
-          <label for="cars">Payment Method:</label>
-          <select name="cars" id="cars" style = "color: #000000;">
-            <option value="opel">Venmo</option>
-            <option value="audi">Cash App</option>
-          </select>
-          <br><br>
-      </form>
-      </div>
-    </div>
-    <div class = "profileCheck">
-        <input type="checkbox" id="profile" name = "profile" >
-        <label for="profile"> Anonymous Post?</label><br>
-    </div>
-    <div class = "submitButton" style= "float: right;">
-        <li><button type="button" class="action-button secondary" id = "submitPost">ADD TICKET</button></li>
-    </div>
-  </div>
-</div>
-
-<script>
-var modal = document.getElementById("myModal");
-var btn = document.getElementById("modalButton");
-var span = document.getElementsByClassName("close")[0];
-var submit = document.getElementById("submitPost");
-btn.onclick = function() {
-  modal.style.display = "block";
-}
-span.onclick = function() {
-  modal.style.display = "none";
-}
-submit.onclick = function() {
-  modal.style.display = "none";
-}
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
-</script>
 </body>
 </html>
