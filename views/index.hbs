@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="/stylesheets/header.css">
         <link rel="stylesheet" href="/stylesheets/footer.css">
         <link rel="stylesheet" href="/stylesheets/index.css">
-        <link rel="stylesheet" href="/stylesheets/auth.css">
         <link rel="stylesheet" href="/stylesheets/modal.css">
     </head>
     <body>
@@ -40,82 +39,6 @@
     </div>
 
     {{> footer}}
-    <!-- The Modal -->
-    <div id="loginModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-      <span class="close">&times;</span>
-      <div class ="headerPortion">
-        <h1> Login User </h1>
-      </div>
-      <form action="authenticate-controller.js" method="POST" id = "loginForm">
-      <div class = "titleContent">
-        <h3> Username </h3>
-        Email: <input type="text" name="email" class = "no-outline" placeholder="Enter Username...">
-      </div>
-      <div class = "descriptionContent">
-        <h3> Password </h3>
-          Email: <input type="password" name="password" class = "no-outline" placeholder="Enter Password...">
-      </div>
-      <div class = "submitButton">
-          <li><button type="submit" value = "Submit" form = "loginForm" class="action-button secondary" id = "submitPost">Login</button></li>
-      </div>
-      <li><button type="button" class="action-button secondary" id = "regButton">New User? REGISTER</button></li>
-      </form>
-      </div>
-    </div>
-
-    <div id="regModal" class="modal">
-      <!-- Modal content -->
-      <div class="modal-content">
-      <span class="close1">&times;</span>
-      <div class ="headerPortion">
-        <h1> Register User </h1>
-      </div>
-      <form action="register-controller.js" method="POST" id = "subForm">
-      <div class = "titleContent">
-        <h3> Username </h3>
-        Email: <input type="text" name="email" class = "no-outline" placeholder="Enter Username...">
-      </div>
-      <div class = "descriptionContent">
-        <h3> Password </h3>
-          Email: <input type="password" name="password" class = "no-outline" placeholder="Enter Password...">
-      </div>
-      <div class = "submitButton">
-        <li><button type="submit" value = "Submit" form = "subForm" class="action-button secondary" id = "regButton">Register</button></li>
-      </div>
-      </form>
-      </div>
-    </div>
-
-    <script>
-    var loginmodal = document.getElementById("loginModal");
-    var regmodal = document.getElementById("regModal");
-    var btn = document.getElementById("modalButton");
-    var registerBtn = document.getElementById("regButton");
-    var span1 = document.getElementsByClassName("close")[0];
-    var span2 = document.getElementsByClassName("close1")[0];
-    btn.onclick = function() {
-      loginmodal.style.display = "block";
-    }
-    registerBtn.onclick = function() {
-      regmodal.style.display = "block";
-      loginmodal.style.display = "none";
-    }
-    span1.onclick = function() {
-      loginmodal.style.display = "none";
-    }
-    span2.onclick = function() {
-      regmodal.style.display = "none";
-    }
-    window.onclick = function(event) {
-      if (event.target == loginmodal) {
-        loginmodal.style.display = "none";
-      }
-      if (event.target == regmodal) {
-        regmodal.style.display = "none";
-      }
-    }
-    </script>
+    {{> loginModals}}
     </body>
 </html>

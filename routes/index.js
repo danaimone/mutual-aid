@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var authenticateController=require( __dirname + "/" + "authenticate-controller");
-var registerController=require( __dirname + "/" + "register-controller");
+var authenticateController=require("../public/controllers/authenticate-controller");
+var registerController=require("../public/controllers/register-controller");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -19,11 +19,11 @@ router.get('/map', function(req, res, next) {
 
 router.get('/registration', function (req, res) {
    res.sendFile( __dirname + "/" + "registration.html" );
-})
+});
 
 router.get('/login', function (req, res) {
    res.sendFile( __dirname + "/" + "login.html" );
-})
+});
 
 /* route to handle login and registration */
 router.post('/api/register',registerController.register);
