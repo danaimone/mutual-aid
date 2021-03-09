@@ -27,7 +27,8 @@ textarea {
   background-color: #f5f5f5;
   margin: 15% auto;
   padding: 20px;
-  border: 1px solid #404040;
+  box-shadow: 0 0 10px #333;
+  border-radius: 5px;
   width: 35%;
   height: 45%; }
   .modal-content p {
@@ -36,9 +37,11 @@ textarea {
     color: #000000; }
   .modal-content h1 {
     color: #7dceb4;
-    text-align: center; }
+    text-align: left; }
   .modal-content label {
-    color: #000000; }
+    display: inline-block;
+    color: #000000;
+    margin-right: 1em; }
 
 .radio-inline {
   color: #000000;
@@ -108,10 +111,10 @@ input {
     font-size: 14px; }
 
 .radioButtons {
-  margin-bottom: 15px; }
+  margin-bottom: 1em; }
 
 .headerPortion {
-  margin-bottom: 15px; }
+  margin-bottom: 1em; }
 
 .no-outline:focus {
   outline: none; }
