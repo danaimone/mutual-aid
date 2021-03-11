@@ -1,0 +1,121 @@
+<!-- The Modal -->
+<div id="loginModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class ="headerPortion">
+            <h1> Login User </h1>
+        </div>
+        <div class="form-content">
+        <form action="authenticate-controller.js" method="POST" id = "loginForm">
+            <div class = "titleContent">
+                <h3> Username </h3>
+                <input type="text" id = "usernameLog" name="user" class = "no-outline" placeholder="Enter Username...">
+            </div>
+            <div class = "descriptionContent">
+                <h3> Password </h3>
+                <input type="password" id = "passwordLog" name="password" class = "no-outline" placeholder="Enter Password...">
+            </div>
+            <div>
+                <p style = "color: #FF0000; font-size:12px"> {{ error }} </p>
+            </div>
+            <div class = "submitButton">
+                <li><button type="submit" value = "Submit" form = "loginForm" class="action-button secondary" id = "submitPost">Login</button></li>
+            </div>
+            <li><button type="button" class="action-button secondary" id = "regButton">New User? REGISTER</button></li>
+        </form>
+        </div>
+    </div>
+</div>
+
+<div id="regModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close1">&times;</span>
+        <div class ="headerPortion">
+            <h1> Register User </h1>
+        </div>
+        <form action="register-controller.js" method="POST" id = "subForm">
+            <div class = "titleContent">
+                <h3> Username </h3>
+                <input type="text" name="user1" class = "no-outline" placeholder="Enter Username...">
+            </div>
+            <div class = "descriptionContent">
+                <h3> First Name </h3>
+                <input type="text" name="fname" class = "no-outline" placeholder="First Name...">
+            </div>
+            <div class = "descriptionContent">
+                <h3> Last Name </h3>
+                <input type="text" name="lname" class = "no-outline" placeholder="Last Name...">
+            </div>
+            <div class = "descriptionContent">
+                <h3> Email </h3>
+                <input type="email" name="email" class = "no-outline" placeholder="Email Address">
+            </div>
+            <div class = "descriptionContent">
+                <h3> Password </h3>
+                <input type="password" name="password1" class = "no-outline" placeholder="Enter Password...">
+            </div>
+            <div>
+                <p style = "color: #FF0000; font-size:12px"> {{ errorMsg }} </p>
+            </div>
+            <div class = "submitButton">
+                <li><button type="submit" value = "Submit" form = "subForm" class="action-button secondary" id = "regButton">Register</button></li>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+function viewModal() {
+  var loginmodal = document.getElementById("loginModal");
+  var contactmodal = document.getElementById("contactModal");
+  var regmodal = document.getElementById("regModal");
+  var logError = "{{error}}";
+  var regError = "{{errorMsg}}";
+  var conError = "{{contact}}";
+  if (conError) {
+    regmodal.style.display = "none";
+    loginmodal.style.display = "none";
+    contactmodal.style.display = "block";
+  } else if ((!logError || 0 === logError.length) &&  (!regError || 0 === regError.length)) {
+    contactmodal.style.display = "none";
+    regmodal.style.display = "none";
+    loginmodal.style.display = "none";
+  }
+   else if ((!logError || 0 === logError.length) &&  (regError)) {
+     regmodal.style.display = "block";
+     loginmodal.style.display = "none";
+  } else if ((!regError || 0 === regError.length) &&  (logError)) {
+    regmodal.style.display = "none";
+    loginmodal.style.display = "block";
+ }
+}
+    var loginmodal = document.getElementById("loginModal");
+    var regmodal = document.getElementById("regModal");
+    var btn = document.getElementById("modalButton");
+    var registerBtn = document.getElementById("regButton");
+    var span1 = document.getElementsByClassName("close")[0];
+    var span2 = document.getElementsByClassName("close1")[0];
+    btn.onclick = function() {
+        loginmodal.style.display = "block";
+    }
+    registerBtn.onclick = function() {
+        regmodal.style.display = "block";
+        loginmodal.style.display = "none";
+    }
+    span1.onclick = function() {
+        loginmodal.style.display = "none";
+    }
+    span2.onclick = function() {
+        regmodal.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == loginmodal) {
+            loginmodal.style.display = "none";
+        }
+        if (event.target == regmodal) {
+            regmodal.style.display = "none";
+        }
+    }
+</script>
