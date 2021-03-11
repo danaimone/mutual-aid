@@ -6,16 +6,19 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 var bodyParser=require('body-parser');
-var connection = require('./config');
-var indexRouter = require('./routes/index');
-var ticketsRouter = require('./routes/tickets');
-var authenticateController=require('./controllers/authenticate-controller');
-var registerController=require('./controllers/register-controller');
-
+const session = require('express-session');
+const flash = require('connect-flash');
 
 var app = express();
+app.use(session({
+    secret:'mynicknameisbuzz',
+    saveUninitialized: true,
+    resave: true
+}));
 
+app.use(flash());
 /* Routing to specific JS file */
+var indexRouter = require('./routes/index');
 var ticketsRouter = require('./routes/tickets');
 var mapRouter = require('./routes/map');
 
@@ -62,13 +65,20 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+/* Controllers for javascript forms and database connection */
+let authenticateController=require('./public/controllers/authenticate-controller');
+let registerController=require('./public/controllers/register-controller');
+let ticketsController=require('./public/controllers/tickets-controller');
+
 /* route to handle login and registration */
+/*
 app.post('/api/register',registerController.register);
 app.post('/api/authenticate',authenticateController.authenticate);
+app.post('/api/createTicket', ticketsController.createTicket);
 
-console.log(authenticateController);
 app.post('/controllers/register-controller', registerController.register);
 app.post('/controllers/authenticate-controller', authenticateController.authenticate);
-
+app.post('/controllers/tickets-controller', ticketsController.createTicket);
+ */
 
 module.exports = app;
