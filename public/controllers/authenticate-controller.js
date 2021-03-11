@@ -1,6 +1,6 @@
 let connection = require('./database');
 let Request = require('tedious').Request;
-var TYPES = require('tedious').TYPES;
+let TYPES = require('tedious').TYPES;
 
 
 module.exports.authenticate=function(req,res){
@@ -39,6 +39,7 @@ module.exports.authenticate=function(req,res){
         }
         else {
             if (password === columns[0].value) {
+                res.cookie('username', username);
                 res.redirect(req.headers['origin']);
             } else {
                 res.json({

@@ -1,22 +1,22 @@
 let connection = require('./database');
 let Request = require('tedious').Request;
-var TYPES = require('tedious').TYPES;
+let TYPES = require('tedious').TYPES;
 
 
 module.exports.register=function(req,res){
-    let user = req.body.user;
+    let username = req.body.user;
     let pass = req.body.password;
     let fname = req.body.fname;
     let lname = req.body.lname;
     let email = req.body.email;
-    if(user == "" || pass == "") {
+    if(username == "" || pass == "") {
       res.json({
         message:"You must input a username and password."
         })
     }
 
     var sql = `INSERT INTO Users (username, firstName, lastName, email, password)
-    VALUES (@user, @fname, @lname, @email, @pass);`;
+    VALUES (@username, @fname, @lname, @email, @pass);`;
     var request = new Request(sql, (err, rowCount) => {
         if (err) {
             console.error(err);
@@ -25,10 +25,11 @@ module.exports.register=function(req,res){
             });
         } else {
             console.log(rowCount + " rows affected.");
+            res.cookie('username', username);
             res.redirect(req.headers['origin']);
         }
     });
-    request.addParameter('user', TYPES.VarChar, user);
+    request.addParameter('username', TYPES.VarChar, username);
     request.addParameter('fname', TYPES.VarChar, fname);
     request.addParameter('lname', TYPES.VarChar, lname);
     request.addParameter('email', TYPES.VarChar, email);
