@@ -1,0 +1,87 @@
+$primary: #7dceb4
+$secondary: #7f58cc
+$primary-compliment: #6fad9a
+$secondary-compliment: #614599
+$error: #e5383b
+$gray: #f5f5f5
+$font-family: Arial, Helvetica, sans-serif
+
+.loginbox
+  width: 300px
+  height: 320px
+  background: #000
+  color: #fff
+  top: 50%
+  left: 50%
+  position: absolute
+  transform: translate(-50%, -50%)
+  box-sizing: border-box
+  padding: 27px 30px
+  p
+    margin: 0
+    padding: 0
+    font-weight: bold
+  input
+    width: 100%
+    margin-bottom: 20px
+  input[type="submit"]
+    border: none
+    outline: none
+    height: 25px
+    color: white
+    background: #003049
+    border-radius: 20px
+  input[type="submit"]:hover
+    cursor: pointer
+    background: $error
+    color: black
+  a
+    text-decoration: none
+    font-size: 13px
+    line-height: 20px
+    color: white
+    &:hover
+      color: $error
+
+.avatar
+  width: 100px
+  height: 100px
+  border-radius: 50%
+  position: absolute
+  top: -50px
+  left: calc(50% - 50px)
+
+
+.form-content, .close, .headerPortion, .modal-content
+  font-family: $font-family
+  margin: auto
+  padding: 0
+
+button
+  border: none
+  outline: none
+  transition: all 200ms linear
+
+.action-button
+  border-radius: 10px
+  padding: 0.5rem
+  margin: 0.25rem
+  color: white
+  &.primary
+    background-color: $primary
+    box-shadow: 0 3px $primary-compliment
+    &:hover
+      background-color: $primary-compliment
+
+  &.secondary
+    background-color: $secondary
+    box-shadow: 0 3px $secondary-compliment
+    &:hover
+      background-color: $secondary-compliment
+
+  &:active
+    background-color: green
+
+
+
+
