@@ -15,6 +15,8 @@
             <div class = "descriptionContent">
                 <h3> Password </h3>
                 <input type="password" name="password" class = "no-outline" placeholder="Enter Password...">
+            <div>
+                <p style = "color: #FF0000; font-size:12px"> {{ error }} </p>
             </div>
             <div class = "submitButton">
                 <li><button type="submit" value = "Submit" form = "loginForm" class="action-button secondary" id = "submitPost">Login</button></li>
@@ -53,6 +55,9 @@
                 <h3> Password </h3>
                 <input type="password" name="password" class = "no-outline" placeholder="Enter Password...">
             </div>
+            <div>
+                <p style = "color: #FF0000; font-size:12px"> {{ errorMsg }} </p>
+            </div>
             <div class = "submitButton">
                 <li><button type="submit" value = "Submit" form = "subForm" class="action-button secondary" id = "regButton">Register</button></li>
             </div>
@@ -61,6 +66,30 @@
 </div>
 
 <script>
+function viewModal() {
+  var loginmodal = document.getElementById("loginModal");
+  var contactmodal = document.getElementById("contactModal");
+  var regmodal = document.getElementById("regModal");
+  var logError = "{{error}}";
+  var regError = "{{errorMsg}}";
+  var conError = "{{contact}}";
+  if (conError) {
+    regmodal.style.display = "none";
+    loginmodal.style.display = "none";
+    contactmodal.style.display = "block";
+  } else if ((!logError || 0 === logError.length) &&  (!regError || 0 === regError.length)) {
+    contactmodal.style.display = "none";
+    regmodal.style.display = "none";
+    loginmodal.style.display = "none";
+  }
+   else if ((!logError || 0 === logError.length) &&  (regError)) {
+     regmodal.style.display = "block";
+     loginmodal.style.display = "none";
+  } else if ((!regError || 0 === regError.length) &&  (logError)) {
+    regmodal.style.display = "none";
+    loginmodal.style.display = "block";
+ }
+}
     var loginmodal = document.getElementById("loginModal");
     var regmodal = document.getElementById("regModal");
     var btn = document.getElementById("modalButton");

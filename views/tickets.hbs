@@ -24,7 +24,7 @@
     </div>
     <div id='tickets'>
         <div class="ticket">
-            <div class="ticket-grid">
+            <div class="ticket-grid" id = "ticket1" onClick="modalCall(this.id)">
                 <div class="ticket-username"><h2>chrisdawww</h2></div>
                 <div class="ticket-type">Request</div>
                 <div class="ticket-picture"></div>
@@ -36,8 +36,8 @@
                 </div>
             </div>
         </div>
-        <div class="ticket">
-            <div class="ticket-grid">
+        <div class="ticket" >
+            <div class="ticket-grid" id = "ticket2" onClick="modalCall(this.id)">
                 <div class="ticket-username"><h2>danaimone</h2></div>
                 <div class="ticket-type">Request</div>
                 <div class="ticket-picture"></div>
@@ -49,8 +49,8 @@
                 </div>
             </div>
         </div>
-        <div class="ticket">
-            <div class="ticket-grid">
+        <div class="ticket" >
+            <div class="ticket-grid" id = "ticket3" onClick="modalCall(this.id)">
                 <div class="ticket-username"><h2>nitopalma</h2></div>
                 <div class="ticket-type">Request</div>
                 <div class="ticket-picture"></div>
@@ -63,7 +63,7 @@
             </div>
         </div>
         <div class="ticket">
-            <div class="ticket-grid">
+            <div class="ticket-grid" id = "ticket4" onClick="modalCall(this.id)">
                 <div class="ticket-username"><h2>nitopalma</h2></div>
                 <div class="ticket-type">Request</div>
                 <div class="ticket-picture"></div>
@@ -76,7 +76,7 @@
             </div>
         </div>
         <div class="ticket">
-            <div class="ticket-grid">
+            <div class="ticket-grid" id = "ticket5" onClick="modalCall(this.id)">
                 <div class="ticket-username"><h2>nitopalma</h2></div>
                 <div class="ticket-type">Request</div>
                 <div class="ticket-picture"></div>
@@ -89,7 +89,7 @@
             </div>
         </div>
         <div class="ticket">
-            <div class="ticket-grid">
+            <div class="ticket-grid" id = "ticket6" onClick="modalCall(this.id)">
                 <div class="ticket-username"><h2>nitopalma</h2></div>
                 <div class="ticket-type">Request</div>
                 <div class="ticket-picture"></div>
@@ -102,7 +102,7 @@
             </div>
         </div>
         <div class="ticket">
-            <div class="ticket-grid">
+            <div class="ticket-grid" id = "ticket7" onClick="modalCall(this.id)">
                 <div class="ticket-username"><h2>nitopalma</h2></div>
                 <div class="ticket-type">Request</div>
                 <div class="ticket-picture"></div>
@@ -115,7 +115,7 @@
             </div>
         </div>
         <div class="ticket">
-            <div class="ticket-grid">
+            <div class="ticket-grid" id = "ticket8" onClick="modalCall(this.id)">
                 <div class="ticket-username"><h2>nitopalma</h2></div>
                 <div class="ticket-type">Request</div>
                 <div class="ticket-picture"></div>
@@ -128,7 +128,7 @@
             </div>
         </div>
         <div class="ticket">
-            <div class="ticket-grid">
+            <div class="ticket-grid" id = "ticket9" onClick="modalCall(this.id)">
                 <div class="ticket-username"><h2>nitopalma</h2></div>
                 <div class="ticket-type">Request</div>
                 <div class="ticket-picture"></div>
@@ -141,7 +141,7 @@
             </div>
         </div>
         <div class="ticket">
-            <div class="ticket-grid">
+            <div class="ticket-grid" id = "ticket10" onClick="modalCall(this.id)">
                 <div class="ticket-username"><h2>hannahbuzard</h2></div>
                 <div class="ticket-type">Request</div>
                 <div class="ticket-picture"></div>
@@ -154,7 +154,7 @@
             </div>
         </div>
         <div class="ticket">
-            <div class="ticket-grid">
+            <div class="ticket-grid" id = "ticket11" onClick="modalCall(this.id)">
                 <div class="ticket-username"><h2>aranclauson</h2></div>
                 <div class="ticket-type">Service</div>
                 <div class="ticket-picture"></div>
@@ -171,7 +171,23 @@
 </div>
 
 {{> ticketModal}}
-
 {{> footer}}
+
+<script>
+    function modalCall(clickedID) {
+      console.log(clickedID);
+      var username = document.getElementById(clickedID).children[0].children[0].innerHTML;
+      var type = document.getElementById(clickedID).children[1].innerHTML;
+      var text = document.getElementById(clickedID).children[3].innerHTML;
+      console.log(username);
+      console.log(type);
+      console.log(text);
+      document.getElementById('ticketUser').innerHTML = username;
+      document.getElementById('ticketType').innerHTML = type;
+      document.getElementById('ticketDesc').innerHTML = text;
+      var ticketModal = document.getElementById('ticketModal')
+      ticketModal.style.display = "block";
+    }
+</script>
 </body>
 </html>
