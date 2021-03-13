@@ -9,7 +9,7 @@ module.exports.register=function(req,res){
     let fname = req.body.fname;
     let lname = req.body.lname;
     let email = req.body.email;
-    if(user == "" || pass == "") {
+    if(username == "" || pass == "") {
       req.flash('error', "" );
       req.flash('errorMsg', "No Username and Password provided.");
       res.redirect('/');
