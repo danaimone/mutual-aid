@@ -59,7 +59,7 @@
                 <p style = "color: #FF0000; font-size:12px"> {{ errorMsg }} </p>
             </div>
             <div class = "submitButton">
-                <li><button type="submit" value = "Submit" form = "subForm" class="action-button secondary" id = "regButton">Register</button></li>
+                <li><button type="submit" value = "Submit" form = "subForm" class="action-button secondary" >Register</button></li>
             </div>
         </form>
     </div>
@@ -100,6 +100,7 @@ function viewModal() {
         loginmodal.style.display = "block";
     }
     registerBtn.onclick = function() {
+        console.log("button clicked");
         regmodal.style.display = "block";
         loginmodal.style.display = "none";
     }
