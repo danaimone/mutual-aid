@@ -7,24 +7,26 @@ module.exports.authenticate=function(req,res){
     let username=req.body.user;
     let password=req.body.password;
 
+    var errorString = "";
     if(username == "" || password == "") {
-      res.json({
-        message:"You must input a username and password."
-        })
+      req.flash('error', "No Username and Password provided." );
+      req.flash('errorMsg', "");
+      res.redirect('/');
+        return;
     }
 
     let sql = 'SELECT password FROM Users WHERE username = @user;'
     var request = new Request(sql, (err, rowCount) => {
         if (err) {
-            console.error(err);
-            res.json({
-                message: "Username " + username + " not found."
-            });
+          req.flash('error', "Username does not exist." );
+          req.flash('errorMsg', "");
+          res.redirect('/');
+          return;
         } else {
             if (rowCount < 1) {
-                res.json({
-                    message: "Username " + username + " not found."
-                })
+              req.flash('error', "Username does not exist." );
+              req.flash('errorMsg', "");
+              res.redirect('/');
             }
         }
     });
@@ -33,18 +35,21 @@ module.exports.authenticate=function(req,res){
     request.on('row', function(columns) {
         console.log(columns);
         if (columns.length < 1) {
-            res.json({
-                message: "Username " + username + " not found."
-            });
+          req.flash('error', "Username does not exist." );
+          req.flash('errorMsg', "");
+          res.redirect('/');
         }
         else {
             if (password === columns[0].value) {
-                res.cookie('username', username);
-                res.redirect(req.headers['origin']);
+              req.flash('error', "" );
+              req.flash('errorMsg', "");
+              res.redirect('/');
+                return;
             } else {
-                res.json({
-                    message: "Password incorrect"
-                });
+              req.flash('error', "Password is incorrect." );
+              req.flash('errorMsg', "");
+              res.redirect('/');
+                return;
             }
         }
     });

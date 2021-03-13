@@ -7,9 +7,17 @@ var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
 var bodyParser=require('body-parser');
 
+const session = require('express-session');
+const flash = require('connect-flash');
 
 var app = express();
+app.use(session({
+    secret:'mynicknameisbuzz',
+    saveUninitialized: true,
+    resave: true
+}));
 
+app.use(flash());
 /* Routing to specific JS file */
 var indexRouter = require('./routes/index');
 var ticketsRouter = require('./routes/tickets');

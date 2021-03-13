@@ -1,0 +1,48 @@
+<!-- The Modal -->
+<div id="contactModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close3">&times;</span>
+        <div class ="headerPortion">
+            <h2 id = "ticketTitle"> Contact Us! </h2>
+        </div>
+        <form action="send-email" method="POST" id = "contactForm">
+            <div class = "titleContent">
+                <p> Full Name</p>
+                <input type="text" name="fullname" class = "no-outline" placeholder="Enter full name ... ">
+            </div>
+            <div class = "titleContent">
+                <p> Email Address</p>
+                <input type="text" name="emailAdd" class = "no-outline" placeholder="Enter email address ... ">
+            </div>
+            <div class = "titleContent">
+                <p> Message: </p>
+                <input type="text" name="message" class = "no-outline" placeholder="Enter message content ... ">
+            </div>
+            <p > We will get back to you as soon as possible! Thank you.</p>
+            <div>
+                <p style = "color: #FF0000; font-size:12px"> {{ contact }} </p>
+            </div>
+            <div class = "submitButton">
+                <li><button type="submit" value = "Submit" form = "contactForm" class="action-button secondary" id = "messageButton">Send</button></li>
+            </div>
+      </form>
+    </div>
+</div>
+
+<script>
+    var modal = document.getElementById("contactModal");
+    var spanX = document.getElementsByClassName("close3")[0];
+    var submit = document.getElementById("messageButton");
+    spanX.onclick = function() {
+        modal.style.display = "none";
+    }
+    submit.onclick = function() {
+        modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>

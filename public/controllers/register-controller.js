@@ -10,9 +10,10 @@ module.exports.register=function(req,res){
     let lname = req.body.lname;
     let email = req.body.email;
     if(username == "" || pass == "") {
-      res.json({
-        message:"You must input a username and password."
-        })
+      req.flash('error', "" );
+      req.flash('errorMsg', "No Username and Password provided.");
+      res.redirect('/');
+      return;
     }
 
     var sql = `INSERT INTO Users (username, firstName, lastName, email, password)
@@ -20,16 +21,19 @@ module.exports.register=function(req,res){
     var request = new Request(sql, (err, rowCount) => {
         if (err) {
             console.error(err);
-            res.json({
-                message: "Error registering user. Please try again"
-            });
+            req.flash('error', "" );
+            req.flash('errorMsg', "Error registering. Please try again.");
+            res.redirect('/');
+            return;
         } else {
             console.log(rowCount + " rows affected.");
-            res.cookie('username', username);
-            res.redirect(req.headers['origin']);
+            req.flash('error', "" );
+            req.flash('errorMsg', "");
+            res.redirect('/');
+            return;
         }
     });
-    request.addParameter('username', TYPES.VarChar, username);
+    request.addParameter('usernme', TYPES.VarChar, username);
     request.addParameter('fname', TYPES.VarChar, fname);
     request.addParameter('lname', TYPES.VarChar, lname);
     request.addParameter('email', TYPES.VarChar, email);
