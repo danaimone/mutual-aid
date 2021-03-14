@@ -27,6 +27,7 @@ module.exports.register=function(req,res){
             return;
         } else {
             console.log(rowCount + " rows affected.");
+            res.cookie('username', username);
             req.flash('error', "" );
             req.flash('errorMsg', "");
             res.redirect('/');
