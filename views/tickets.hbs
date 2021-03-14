@@ -188,6 +188,20 @@
       var ticketModal = document.getElementById('ticketModal')
       ticketModal.style.display = "block";
     }
+    var add = document.getElementById("modalButton");
+    var tickModal = document.getElementById("ticketModal");
+    add.onclick = function() {
+        tickModal.style.display = "block";
+    }
+    window.onclick = function(event) {
+        if (event.target == tickModal) {
+            tickModal.style.display = "none";
+        }
+    }
+    var spanX = document.getElementsByClassName("closeX")[0];
+    spanX.onclick = function() {
+        tickModal.style.display = "none";
+    }
 </script>
 </body>
 </html>
