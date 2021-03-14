@@ -170,6 +170,59 @@
     </div>
 </div>
 
+
+<!-- The Modal -->
+<div id="addModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+  <span class="close">&times;</span>
+    <div class ="headerPortion">
+      <h1> Add A Ticket </h1>
+    </div>
+    <div class = "radioButtons">
+      <form>
+        <label class="radio-inline">
+          <input type="radio" name="optradio" checked>Request
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="optradio">Service
+        </label>
+      </form>
+    </div>
+    <div class = "titleContent">
+      <h3> Title </h3>
+      <input type="text" class = "no-outline" name = "title" placeholder="Ticket title..." id = "title">
+    </div>
+    <div class = "descriptionContent">
+      <h3> Description </h3>
+      <input type="text" name = "description" class = "no-outline" placeholder="Ticket description..." id = "description">
+    </div>
+    <div class = "payments">
+      <div class = "paymentOption" id ="paymentCheck">
+        <input type="checkbox" id="payment" name = "payment" >
+        <label for="payment"> Request payment?</label><br>
+      </div>
+      <div class = "paymentOption" id= "menu">
+        <form action="/action_page.php">
+          <label for="cars">Payment Method:</label>
+          <select name="cars" id="cars" style = "color: #000000;">
+            <option value="opel">Venmo</option>
+            <option value="audi">Cash App</option>
+          </select>
+          <br><br>
+      </form>
+      </div>
+    </div>
+    <div class = "profileCheck">
+        <input type="checkbox" id="profile" name = "profile" >
+        <label for="profile"> Anonymous Post?</label><br>
+    </div>
+    <div class = "submitButton" style= "float: right;">
+        <li><button type="button" class="action-button secondary" id = "submitPost">ADD TICKET</button></li>
+    </div>
+  </div>
+</div>
+
 {{> ticketModal}}
 {{> footer}}
 
@@ -187,6 +240,24 @@
       document.getElementById('ticketDesc').innerHTML = text;
       var ticketModal = document.getElementById('ticketModal')
       ticketModal.style.display = "block";
+    }
+    var add = document.getElementById("modalButton");
+    var tickModal = document.getElementById("addModal");
+    add.onclick = function() {
+        tickModal.style.display = "block";
+    }
+    window.onclick = function(event) {
+        if (event.target == tickModal) {
+            tickModal.style.display = "none";
+        }
+    }
+    var spanX = document.getElementsByClassName("close")[0];
+    spanX.onclick = function() {
+        tickModal.style.display = "none";
+    }
+    var sub = document.getElementById("submitPost");
+    sub.onclick = function() {
+        tickModal.style.display = "none";
     }
 </script>
 </body>
