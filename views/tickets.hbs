@@ -22,150 +22,25 @@
     <div id='no-tickets' style='display: none'>
         <span>NO TICKETS - HERE ARE SOME WAYS TO GET INVOLVED</span>
     </div>
+
     <div id='tickets'>
-        <div class="ticket">
-            <div class="ticket-grid" id = "ticket1" onClick="modalCall(this.id)">
-                <div class="ticket-username"><h2>chrisdawww</h2></div>
-                <div class="ticket-type">Request</div>
-                <div class="ticket-picture"></div>
-                <div class="ticket-main-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                <div class="ticket-contribute">
-                    <button>
-                        +
-                    </button>
+
+        {{#each tickets}}
+            <div class="ticket">
+                <div class="ticket-grid" id={{id}}  onClick="modalCall(this.id)">
+                    <div class="ticket-title" style="display: none"><h2>{{title}}</h2></div>
+                    <div class="ticket-username"><h2>{{username}}</h2></div>
+                    <div class="ticket-type">{{type}}</div>
+                    <div class="ticket-picture"></div>
+                    <div class="ticket-main-text">{{description}}</div>
+                    <div class="ticket-contribute">
+                        <button>
+                            +
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="ticket" >
-            <div class="ticket-grid" id = "ticket2" onClick="modalCall(this.id)">
-                <div class="ticket-username"><h2>danaimone</h2></div>
-                <div class="ticket-type">Request</div>
-                <div class="ticket-picture"></div>
-                <div class="ticket-main-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                <div class="ticket-contribute">
-                    <button>
-                        +
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="ticket" >
-            <div class="ticket-grid" id = "ticket3" onClick="modalCall(this.id)">
-                <div class="ticket-username"><h2>nitopalma</h2></div>
-                <div class="ticket-type">Request</div>
-                <div class="ticket-picture"></div>
-                <div class="ticket-main-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                <div class="ticket-contribute">
-                    <button>
-                        +
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="ticket">
-            <div class="ticket-grid" id = "ticket4" onClick="modalCall(this.id)">
-                <div class="ticket-username"><h2>nitopalma</h2></div>
-                <div class="ticket-type">Request</div>
-                <div class="ticket-picture"></div>
-                <div class="ticket-main-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                <div class="ticket-contribute">
-                    <button>
-                        +
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="ticket">
-            <div class="ticket-grid" id = "ticket5" onClick="modalCall(this.id)">
-                <div class="ticket-username"><h2>nitopalma</h2></div>
-                <div class="ticket-type">Request</div>
-                <div class="ticket-picture"></div>
-                <div class="ticket-main-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                <div class="ticket-contribute">
-                    <button>
-                        +
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="ticket">
-            <div class="ticket-grid" id = "ticket6" onClick="modalCall(this.id)">
-                <div class="ticket-username"><h2>nitopalma</h2></div>
-                <div class="ticket-type">Request</div>
-                <div class="ticket-picture"></div>
-                <div class="ticket-main-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                <div class="ticket-contribute">
-                    <button>
-                        +
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="ticket">
-            <div class="ticket-grid" id = "ticket7" onClick="modalCall(this.id)">
-                <div class="ticket-username"><h2>nitopalma</h2></div>
-                <div class="ticket-type">Request</div>
-                <div class="ticket-picture"></div>
-                <div class="ticket-main-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                <div class="ticket-contribute">
-                    <button>
-                        +
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="ticket">
-            <div class="ticket-grid" id = "ticket8" onClick="modalCall(this.id)">
-                <div class="ticket-username"><h2>nitopalma</h2></div>
-                <div class="ticket-type">Request</div>
-                <div class="ticket-picture"></div>
-                <div class="ticket-main-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                <div class="ticket-contribute">
-                    <button>
-                        +
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="ticket">
-            <div class="ticket-grid" id = "ticket9" onClick="modalCall(this.id)">
-                <div class="ticket-username"><h2>nitopalma</h2></div>
-                <div class="ticket-type">Request</div>
-                <div class="ticket-picture"></div>
-                <div class="ticket-main-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                <div class="ticket-contribute">
-                    <button>
-                        +
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="ticket">
-            <div class="ticket-grid" id = "ticket10" onClick="modalCall(this.id)">
-                <div class="ticket-username"><h2>hannahbuzard</h2></div>
-                <div class="ticket-type">Request</div>
-                <div class="ticket-picture"></div>
-                <div class="ticket-main-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                <div class="ticket-contribute">
-                    <button>
-                        +
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="ticket">
-            <div class="ticket-grid" id = "ticket11" onClick="modalCall(this.id)">
-                <div class="ticket-username"><h2>aranclauson</h2></div>
-                <div class="ticket-type">Service</div>
-                <div class="ticket-picture"></div>
-                <div class="ticket-main-text">Free flight lessons</div>
-                <div class="ticket-contribute">
-                    <button>
-                        +
-                    </button>
-                </div>
-            </div>
-        </div>
+        {{/each}}
 
     </div>
 </div>
@@ -175,19 +50,18 @@
 <div id="addModal" class="modal">
   <!-- Modal content -->
   <div class="modal-content">
+  <form method="POST" action="tickets-controller.js" id="ticket-form">
   <span class="close">&times;</span>
     <div class ="headerPortion">
       <h1> Add A Ticket </h1>
     </div>
     <div class = "radioButtons">
-      <form>
         <label class="radio-inline">
-          <input type="radio" name="optradio" checked>Request
+          <input type="radio" name="type" value="request" checked>Request
         </label>
         <label class="radio-inline">
-          <input type="radio" name="optradio">Service
+          <input type="radio" name="type" value="service">Service
         </label>
-      </form>
     </div>
     <div class = "titleContent">
       <h3> Title </h3>
@@ -203,14 +77,13 @@
         <label for="payment"> Request payment?</label><br>
       </div>
       <div class = "paymentOption" id= "menu">
-        <form action="/action_page.php">
-          <label for="cars">Payment Method:</label>
-          <select name="cars" id="cars" style = "color: #000000;">
-            <option value="opel">Venmo</option>
-            <option value="audi">Cash App</option>
+          <label for="payment-option">Payment Method:</label>
+          <select name="payment-option" id="cars" style="color: black;">
+            <option value="none">None</option>
+            <option value="venmo">Venmo</option>
+            <option value="cashapp">Cash App</option>
           </select>
           <br><br>
-      </form>
       </div>
     </div>
     <div class = "profileCheck">
@@ -218,8 +91,9 @@
         <label for="profile"> Anonymous Post?</label><br>
     </div>
     <div class = "submitButton" style= "float: right;">
-        <li><button type="button" class="action-button secondary" id = "submitPost">ADD TICKET</button></li>
+        <li><button  type="submit" form="ticket-form" class="action-button secondary" id="submitPost">ADD TICKET</button></li>
     </div>
+  </form>
   </div>
 </div>
 
@@ -229,12 +103,11 @@
 <script>
     function modalCall(clickedID) {
       console.log(clickedID);
-      var username = document.getElementById(clickedID).children[0].children[0].innerHTML;
-      var type = document.getElementById(clickedID).children[1].innerHTML;
-      var text = document.getElementById(clickedID).children[3].innerHTML;
-      console.log(username);
-      console.log(type);
-      console.log(text);
+      var title = document.getElementById(clickedID).children[0].children[0].innerHTML;
+      var username = document.getElementById(clickedID).children[1].children[0].innerHTML;
+      var type = document.getElementById(clickedID).children[2].innerHTML;
+      var text = document.getElementById(clickedID).children[4].innerHTML;
+      document.getElementById('ticketTitle').innerHTML = title;
       document.getElementById('ticketUser').innerHTML = username;
       document.getElementById('ticketType').innerHTML = type;
       document.getElementById('ticketDesc').innerHTML = text;

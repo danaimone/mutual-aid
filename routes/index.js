@@ -3,6 +3,7 @@ var router = express.Router();
 var authenticateController=require("../public/controllers/authenticate-controller");
 var registerController=require("../public/controllers/register-controller");
 var contactsController=require("../public/controllers/send-email");
+let ticketsController=require("../public/controllers/tickets-controller");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -27,6 +28,7 @@ router.get('/login', function (req, res) {
 });
 
 
+router.post('/tickets-controller.js', ticketsController.createTicket);
 router.post('/register-controller.js', registerController.register);
 router.post('/authenticate-controller.js', authenticateController.authenticate);
 router.post('/send-email', contactsController.sendmail);

@@ -1,6 +1,7 @@
 <html>
 <head>
     <title>{{title}}</title>
+    <link rel="stylesheet" href="/stylesheets/tickets.css">
     <link rel="stylesheet" href="/stylesheets/footer.css">
     <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/modal.css">
@@ -9,10 +10,15 @@
 
 {{> header}}
 
-<div id='ticket-wrapper'>
-    <div id='error'>nothing to see here </div>
+<div id='tickets-error' class="error">
+    <div class="error">
+        <h1>You need an account to view tickets!</h1>
+        <a href="#" id="modalButton" class="error error-button">Sign Up</a>
+        <a href="/" class="error error-button">Mutual Aid Home</a>
+    </div>
 </div>
 
+{{> loginModals}}
 {{> footer}}
 
 </body>

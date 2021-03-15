@@ -11,6 +11,7 @@ const config = {
     },
     server: "mutual-aid.database.windows.net",
     options: {
+        rowCollectionOnRequestCompletion: true,
         database: "mutual-aid-website",
         encrypt: true
     }

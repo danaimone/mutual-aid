@@ -40,7 +40,10 @@ textarea {
   padding: 20px;
   box-shadow: 0 0 10px #333;
   border-radius: 5px;
-  width: 35%; }
+  width: 35%;
+  overflow-y: scroll;
+  width: 50%;
+  height: 60%; }
   .modal-content p {
     color: #7dceb4; }
   .modal-content h3 {
