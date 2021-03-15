@@ -5,7 +5,7 @@ let TYPES = require('tedious').TYPES;
 
 module.exports.register=function(req,res){
     let username = req.body.user1;
-    let pass = req.body.password;
+    let pass = req.body.password1;
     let fname = req.body.fname;
     let lname = req.body.lname;
     let email = req.body.email;
