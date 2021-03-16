@@ -24,13 +24,19 @@
                 <p style = "color: #FF0000; font-size:12px"> {{ contact }} </p>
             </div>
             <div class = "submitButton">
-                <li><button type="submit" value = "Submit" form = "contactForm" class="action-button secondary" id = "messageButton">Send</button></li>
+                <li><button type="submit" onclick="modalDisplay" value = "Submit" form = "contactForm" class="action-button secondary" id = "messageButton">Send</button></li>
             </div>
       </form>
     </div>
 </div>
 
 <script>
+    function modalDisplay(){
+      var conError = "{{contact}}";
+      if (!conError || 0 == conError.length) {
+          modal.style.display = "none";
+      } 
+    }
     var modal = document.getElementById("contactModal");
     var spanX = document.getElementsByClassName("close3")[0];
     var submit = document.getElementById("messageButton");
