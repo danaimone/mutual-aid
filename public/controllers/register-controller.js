@@ -37,11 +37,13 @@ module.exports.register=function(req,res){
                 return;
             }
         });
-        request.addParameter('usernme', TYPES.VarChar, username);
+        request.addParameter('username', TYPES.VarChar, username);
         request.addParameter('fname', TYPES.VarChar, fname);
         request.addParameter('lname', TYPES.VarChar, lname);
         request.addParameter('email', TYPES.VarChar, email);
-        request.addParameter('pass', TYPES.VarChar, pass);
+        request.addParameter('hash', TYPES.VarChar, hash);
+
+        console.log(username+fname+lname+email+hash);
         connection.execSql(request);
     })
 }

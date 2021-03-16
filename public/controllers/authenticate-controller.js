@@ -41,6 +41,7 @@ module.exports.authenticate=function(req,res){
           res.redirect('/');
         }
         else {
+
             let hash = columns[0].value
             bcrypt.compare(password, hash, function (err, result) {
                 if (result) {
