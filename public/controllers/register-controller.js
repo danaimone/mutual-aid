@@ -43,7 +43,6 @@ module.exports.register=function(req,res){
         request.addParameter('email', TYPES.VarChar, email);
         request.addParameter('hash', TYPES.VarChar, hash);
 
-        console.log(username+fname+lname+email+hash);
         connection.execSql(request);
     })
 }
