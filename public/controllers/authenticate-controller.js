@@ -41,6 +41,7 @@ module.exports.authenticate=function(req,res){
         }
         else {
             if (password === columns[0].value) {
+              res.cookie('username', username);
               req.flash('error', "" );
               req.flash('errorMsg', "");
               res.redirect('/');

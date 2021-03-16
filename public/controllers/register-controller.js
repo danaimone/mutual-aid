@@ -4,8 +4,8 @@ let TYPES = require('tedious').TYPES;
 
 
 module.exports.register=function(req,res){
-    let username = req.body.user;
-    let pass = req.body.password;
+    let username = req.body.user1;
+    let pass = req.body.password1;
     let fname = req.body.fname;
     let lname = req.body.lname;
     let email = req.body.email;
@@ -27,13 +27,14 @@ module.exports.register=function(req,res){
             return;
         } else {
             console.log(rowCount + " rows affected.");
+            res.cookie('username', username);
             req.flash('error', "" );
             req.flash('errorMsg', "");
             res.redirect('/');
             return;
         }
     });
-    request.addParameter('usernme', TYPES.VarChar, username);
+    request.addParameter('username', TYPES.VarChar, username);
     request.addParameter('fname', TYPES.VarChar, fname);
     request.addParameter('lname', TYPES.VarChar, lname);
     request.addParameter('email', TYPES.VarChar, email);

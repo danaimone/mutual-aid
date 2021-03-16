@@ -4,36 +4,29 @@ var TYPES = require('tedious').TYPES;
 
 
 module.exports.createTicket=function(req,res){
-    console.log(req.body);
-    let user = req.body.user;
-    let pass = req.body.password;
-    let fname = req.body.fname;
-    let lname = req.body.lname;
-    let email = req.body.email;
-    if(user == "" || pass == "") {
-      res.json({
-        message:"You must input a username and password."
-        })
-    }
+    let user = req.cookies.username;
+    let type = req.body.type;
+    let title = req.body.title;
+    let desc = req.body.description;
 
-    var sql = `INSERT INTO Users (username, firstName, lastName, email, password)
-    VALUES (@user, @fname, @lname, @email, @pass);`;
+    var sql = `INSERT INTO Tickets (username, type, title, description)
+    VALUES (@user, @type, @title, @desc);`;
     var request = new Request(sql, (err, rowCount) => {
         if (err) {
+            console.log("oop we caught an error:");
             console.error(err);
             res.json({
-                message: "Error registering user. Please try again"
+                message: "Error creating ticket. Please try again"
             });
         } else {
             console.log(rowCount + " rows affected.");
-            res.redirect(req.headers['origin']);
+            res.redirect('/tickets');
         }
     });
     request.addParameter('user', TYPES.VarChar, user);
-    request.addParameter('fname', TYPES.VarChar, fname);
-    request.addParameter('lname', TYPES.VarChar, lname);
-    request.addParameter('email', TYPES.VarChar, email);
-    request.addParameter('pass', TYPES.VarChar, pass);
+    request.addParameter('type', TYPES.VarChar, type);
+    request.addParameter('title', TYPES.VarChar, title);
+    request.addParameter('desc', TYPES.VarChar, desc);
 
-    //connection.execSql(request);
+    connection.execSql(request);
 }

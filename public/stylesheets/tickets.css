@@ -5,6 +5,7 @@
   color: white; }
 
 button {
+  cursor: pointer;
   border: none;
   outline: none;
   transition: all 200ms linear; }
@@ -130,5 +131,26 @@ button {
 
 label {
   margin-right: 2em; }
+
+.error {
+  text-align: center; }
+  .error * {
+    padding: 3rem; }
+  .error div {
+    margin: auto;
+    width: 100%;
+    height: 100%; }
+  .error h1 {
+    color: black; }
+  .error a {
+    text-decoration: none; }
+  .error .error-button {
+    border-radius: 10px;
+    padding: 0.5rem;
+    margin: 0.25rem;
+    background-color: #7dceb4;
+    box-shadow: 0 3px #6fad9a; }
+    .error .error-button:hover {
+      background-color: #6fad9a; }
 
 /*# sourceMappingURL=tickets.css.map */

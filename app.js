@@ -17,6 +17,7 @@ app.use(session({
     resave: true
 }));
 
+app.use(cookieParser());
 app.use(flash());
 /* Routing to specific JS file */
 var indexRouter = require('./routes/index');
@@ -34,7 +35,6 @@ hbs.registerPartials(path.join(__dirname, 'views/partials'));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(sassMiddleware({
   src: path.join(__dirname, 'public'),
   dest: path.join(__dirname, 'public'),
@@ -65,21 +65,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-/* Controllers for javascript forms and database connection */
-let authenticateController=require('./public/controllers/authenticate-controller');
-let registerController=require('./public/controllers/register-controller');
-let ticketsController=require('./public/controllers/tickets-controller');
-
-/* route to handle login and registration */
-/*
-app.post('/api/register',registerController.register);
-app.post('/api/authenticate',authenticateController.authenticate);
-app.post('/api/createTicket', ticketsController.createTicket);
-
-app.post('/controllers/register-controller', registerController.register);
-app.post('/controllers/authenticate-controller', authenticateController.authenticate);
-app.post('/controllers/tickets-controller', ticketsController.createTicket);
- */
 
 module.exports = app;

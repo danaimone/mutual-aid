@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 var authenticateController=require("../public/controllers/authenticate-controller");
 var registerController=require("../public/controllers/register-controller");
-var ticketsController=require("../public/controllers/tickets-controller");
 var commentController=require("../public/controllers/comment-controller");
 var contactsController=require("../public/controllers/send-email");
+let ticketsController=require("../public/controllers/tickets-controller");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -28,14 +28,8 @@ router.get('/login', function (req, res) {
    res.sendFile( __dirname + "/" + "login.html" );
 });
 
-/* route to handle login and registration */
-/*
-router.post('/api/register',registerController.register);
-router.post('/api/authenticate',authenticateController.authenticate);
-router.post('/api/createTicket',ticketsController.createTicket);
 
- */
-
+router.post('/tickets-controller.js', ticketsController.createTicket);
 router.post('/register-controller.js', registerController.register);
 router.post('/authenticate-controller.js', authenticateController.authenticate);
 router.post('/comment-controller.js', commentController.comment);

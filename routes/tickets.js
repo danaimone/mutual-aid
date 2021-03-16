@@ -1,31 +1,57 @@
 /* Routing for Tickets page */
-let router = require('./index')
-let ticketsController=require("../public/controllers/tickets-controller");
-//const cookieParser = require('cookie-parser');
+let connection = require('../public/controllers/database');
+let Request = require('tedious').Request;
+var TYPES = require('tedious').TYPES;
+
+const getTickets = () => new Promise(
+  (resolve, reject) => {
+    var tickets = [];
+    let sql = `SELECT * FROM Tickets;`
+    let request = new Request(sql, (err, rowCount, rows) => {
+      if (err) {
+        reject(err);
+      } else {
+        for(let i=rows.length-1; i>=0; i--) {
+          let ticket = {};
+          let row = rows[i];
+          for (let j=0; j<row.length; j++) {
+            let element = row[j];
+            let colName = element.metadata.colName;
+            ticket[colName] = element.value;
+          }
+          tickets.push(ticket);
+        }
+
+        // Asynchronously return the tickets list
+        resolve(tickets);
+      }
+    });
+
+    connection.execSql(request);
+  });
 
 module.exports = function(app){
-  //app.use(cookieParser)
   app.get('/tickets', function(req, res){
-    res.render('tickets', {
-      title: 'Tickets - Mutual Aid',
-      layout: 'tickets'
-    });
+    if ('username' in req.cookies) {
+      // Async handle grabbing ticket data
+      getTickets()
+          .then(ok => {
+            res.render('tickets', {
+              title: 'Tickets - Mutual Aid',
+              layout: 'tickets',
+              tickets: ok // `ok` is the name of the returned tickets list
+            });
+          })
+          .catch(err => {
+              console.log(err)
+              });
+
+    } else {
+      res.render('ticket-error', {
+        title: 'Tickets - No Access',
+        layout: 'ticket-error'
+      })
+    }
   });
-
-  app.post('/tickets/comment', function(req, res){
-    /* Send the information to server */
-    const reply = req.body.reply;
-    console.log(req.cookies)
-
-    console.log(reply);
-
-
-    res.render('tickets', {
-      title: 'Tickets - Mutual Aid',
-      layout: 'tickets'
-    });
-  });
-
-  router.post('/tickets-controller.js', ticketsController.createTicket);
 }
 
