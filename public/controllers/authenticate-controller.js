@@ -1,6 +1,7 @@
 let connection = require('./database');
 let Request = require('tedious').Request;
 let TYPES = require('tedious').TYPES;
+const bcrypt = require('bcrypt')
 
 
 module.exports.authenticate=function(req,res){
@@ -40,18 +41,22 @@ module.exports.authenticate=function(req,res){
           res.redirect('/');
         }
         else {
-            if (password === columns[0].value) {
-              res.cookie('username', username);
-              req.flash('error', "" );
-              req.flash('errorMsg', "");
-              res.redirect('/');
-                return;
-            } else {
-              req.flash('error', "Password is incorrect." );
-              req.flash('errorMsg', "");
-              res.redirect('/');
-                return;
-            }
+
+            let hash = columns[0].value
+            bcrypt.compare(password, hash, function (err, result) {
+                if (result) {
+                    res.cookie('username', username);
+                    req.flash('error', "" );
+                    req.flash('errorMsg', "");
+                    res.redirect('/');
+                    return;
+                } else {
+                    req.flash('error', "Password is incorrect." );
+                    req.flash('errorMsg', "");
+                    res.redirect('/');
+                    return;
+                }
+            })
         }
     });
 
