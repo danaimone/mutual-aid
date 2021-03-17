@@ -122,6 +122,16 @@ input {
     border-bottom-style: groove;
     color: black;
     font-size: 14px; }
+  .titleContent .submitButton {
+    color: white;
+    border-radius: 10px;
+    padding: 0.3rem;
+    margin: 0.25rem;
+    border: none;
+    background-color: #7f58cc;
+    box-shadow: 0 3px #614599; }
+    .titleContent .submitButton:hover {
+      background-color: #614599; }
 
 .descriptionContent {
   margin-bottom: 15px; }
@@ -142,12 +152,8 @@ input {
 .no-outline:focus {
   outline: none; }
 
-/*Added some sass for a hidden element*/
 .noDisplay {
   display: none; }
-
-.description {
-  background: none; }
 
 .submitButton input {
   border-radius: 10px;
@@ -159,7 +165,7 @@ input {
 .submitButton input:hover {
   background-color: #614599; }
 
-#modalButton {
+.loginButton, .logoutButton {
   color: white;
   border-radius: 10px;
   padding: 0.5rem;
@@ -167,7 +173,17 @@ input {
   text-decoration: none;
   background-color: #7f58cc;
   box-shadow: 0 3px #614599; }
-  #modalButton:hover {
+  .loginButton:hover, .logoutButton:hover {
     background-color: #614599; }
+
+.replySection {
+  border: 2px solid #614599;
+  background-color: #404040;
+  padding: 20px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  border-radius: 15px; }
+  .replySection .pReplies {
+    padding: 2px; }
 
 /*# sourceMappingURL=modal.css.map */

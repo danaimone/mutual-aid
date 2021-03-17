@@ -34,7 +34,6 @@ module.exports.authenticate=function(req,res){
 
     request.addParameter('user', TYPES.VarChar, username);
     request.on('row', function(columns) {
-        console.log(columns);
         if (columns.length < 1) {
           req.flash('error', "Username does not exist." );
           req.flash('errorMsg', "");

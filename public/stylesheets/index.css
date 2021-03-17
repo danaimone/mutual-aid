@@ -14,10 +14,10 @@ button {
 
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr;
   gap: 0px 0px;
-  grid-template-areas: "title_faq info";
+  grid-template-areas: "title_faq" "info";
   background-color: #fff;
   height: 85%; }
 
@@ -70,7 +70,6 @@ button {
   grid-area: title_faq;
   background-color: #f5f5f5;
   padding: 8%;
-  padding-top: 3%;
   box-shadow: 2px 2px 5px #e4e4e4;
   align-items: center;
   justify-content: center; }

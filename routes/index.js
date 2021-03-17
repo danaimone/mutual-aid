@@ -26,7 +26,11 @@ router.get('/faq', function (req, res, next) {
 
 /* GET Map page. */
 router.get('/map', function (req, res, next) {
-    res.render('map', {title: 'Map - Mutual Aid', layout: false, username: req.cookies.username});
+    res.render('map', {
+        title: 'Map - Mutual Aid',
+        layout: false, username:
+        req.cookies.username
+    });
 });
 
 router.get('/registration', function (req, res) {

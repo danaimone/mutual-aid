@@ -42,7 +42,8 @@ module.exports = function(app){
               tickets: ok, // `ok` is the name of the returned tickets list
               replies: [],
               boolOpen: false,
-              idOpen: 0
+              idOpen: 0,
+              username: req.cookies.username,
             });
           })
           .catch(err => {
@@ -52,7 +53,8 @@ module.exports = function(app){
     } else {
       res.render('ticket-error', {
         title: 'Tickets - No Access',
-        layout: 'ticket-error'
+        layout: 'ticket-error',
+        username: req.cookies.username,
       })
     }
   });

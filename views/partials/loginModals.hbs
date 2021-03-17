@@ -2,7 +2,7 @@
 <div id="loginModal" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close" id="closeLogin">&times;</span>
         <div class ="headerPortion">
             <h1> Login User </h1>
         </div>
@@ -31,7 +31,7 @@
 <div id="regModal" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
-        <span class="close1">&times;</span>
+        <span class="close" id="closeReg">&times;</span>
         <div class ="headerPortion">
             <h1> Register User </h1>
         </div>
@@ -93,12 +93,15 @@ function viewModal() {
 }
     var loginmodal = document.getElementById("loginModal");
     var regmodal = document.getElementById("regModal");
-    var btn = document.getElementById("modalButton");
+    var btns = document.getElementsByClassName("loginButton");
     var registerBtn = document.getElementById("regButton");
-    var span1 = document.getElementsByClassName("close")[0];
-    var span2 = document.getElementsByClassName("close1")[0];
-    btn.onclick = function() {
-        loginmodal.style.display = "block";
+    var span1 = document.getElementById("closeLogin");
+    var span2 = document.getElementById("closeReg");
+    var logoutBtn = document.getElementById("logOut");
+    for(let i=0; i<btns.length; i++) {
+        btns[i].onclick = function () {
+            loginmodal.style.display = "block";
+        }
     }
     registerBtn.onclick = function() {
         regmodal.style.display = "block";
@@ -109,6 +112,11 @@ function viewModal() {
     }
     span2.onclick = function() {
         regmodal.style.display = "none";
+    }
+    if (logoutBtn) {
+        logoutBtn.onclick = function () {
+            document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
     }
     window.onclick = function(event) {
         if (event.target == loginmodal) {

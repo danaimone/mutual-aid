@@ -2,7 +2,7 @@
 <div id="contactModal" class="modal">
     <!-- Modal content -->
     <div class="modal-content">
-        <span class="close">&times;</span>
+        <span class="close" id="closeContact">&times;</span>
         <div class ="headerPortion">
             <h2 id = "ticketTitle"> Contact Us! </h2>
         </div>
@@ -38,9 +38,9 @@
       } 
     }
     var modal = document.getElementById("contactModal");
-    var spanX = document.getElementsByClassName("close3")[0];
+    var spanX = document.getElementById("closeContact");
     var submit = document.getElementById("messageButton");
-    spanX.onclick = function() {
+    spanX.onclick = function () {
         modal.style.display = "none";
     }
     submit.onclick = function() {
