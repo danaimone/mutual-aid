@@ -40,21 +40,32 @@
     </div>
 </div>
 
+<div id="exit">
+    <form id="redirectForm" action="/tickets" method="GET"></form>
+</div>
+
 <script>
     var modal = document.getElementById("ticketModal");
     var spanX = document.getElementsByClassName("closeX")[0];
     var submit = document.getElementById("ticketButton");
 
+
     spanX.onclick = function() {
         modal.style.display = "none";
+        //Submit form
+        document.getElementById("redirectForm").submit();
+
     }
     submit.onclick = function() {
         modal.style.display = "none";
+        document.getElementById("redirectForm").submit();
+
 
     }
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
+            document.getElementById("redirectForm").submit();
         }
     }
 
