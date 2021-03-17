@@ -20,12 +20,10 @@
             <li><button type="button" class="action-button secondary">+ SERVICES</button></li>
         </ul>
     </div>
-    <div id='no-tickets' style='display: none'>
-        <span>NO TICKETS - HERE ARE SOME WAYS TO GET INVOLVED</span>
-    </div>
 
     <div id='tickets'>
 
+    {{#if tickets}}
         {{#each tickets}}
             <div class="ticket">
                 <div class="ticket-grid" id={{id}}  onClick="modalCall(this.id)" >
@@ -46,6 +44,19 @@
         <form method="post" action="ticketModal.js" id="replyForm">
             <input type="text" id = "ticketID" name = "ticketID" display="none" class="noDisplay" value="">
         </form>
+    {{else}}
+        <div class="err-grid">
+            <div id='no-tickets'>
+                <span>NO Tickets Currently - Here are some ways to get involved</span>
+            </div>
+            <div id='no-tickets-error' class="error">
+                <a href="/" class="error error-button">Mutual Aid Home</a>
+                <a href="/map" class="error error-button">Mutual Aid Map</a>
+            </div>
+        </div>
+    {{/if}}
+
+
     </div>
 </div>
 
