@@ -31,10 +31,17 @@
         <div class = "titleContent">
             <p> Add A Reply</p>
             <form action="comment-controller.js" method="POST">
-                <input type="text" id = "replyLog" name="reply" class = "no-outline" placeholder="Enter Reply Text here ... ">
-                <input type="text" id = "ticketIDPost" name = "ticketID" display="none" class="noDisplay" value="{{idOpen}}">
+                <label for="replyLog" class="noDisplay"></label>
+
+                <textarea onkeyup="charsLeft(this)" maxlength="3000" id = "replyLog" name="reply" class = "no-outline"
+                                                        placeholder="Enter Reply Text here ... "></textarea>
+                <label class="noDisplay" for="ticketIDPost"></label>
+
+                <input type="text" id = "ticketIDPost" name = "ticketID" class="noDisplay" value="{{idOpen}}">
                 <input class = "submitButton" type="submit" value="Submit">
             </form>
+            <p id="charCount">0 / 3000</p>
+
         </div>
         <li><button type="button" class="action-button secondary" id = "ticketButton">Close Ticket</button></li>
     </div>
@@ -67,6 +74,9 @@
             modal.style.display = "none";
             document.getElementById("redirectForm").submit();
         }
+    }
+    function charsLeft(obj) {
+        document.getElementById("charCount").innerHTML = obj.value.length + " / 3000"
     }
 
 </script>
