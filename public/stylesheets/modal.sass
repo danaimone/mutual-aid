@@ -145,6 +145,17 @@ input
     border-bottom-style: groove
     color: black
     font-size: 14px
+  .submitButton
+    color: white
+    border-radius: 10px
+    padding: 0.3rem
+    margin: 0.25rem
+    border: none
+    background-color: $secondary
+    box-shadow: 0 3px $secondary-compliment
+    &:hover
+      background-color: $secondary-compliment
+
 
 .descriptionContent
   margin-bottom: 15px
@@ -166,12 +177,8 @@ input
 .no-outline:focus
   outline: none
 
-/*Added some sass for a hidden element*/
 .noDisplay
   display: none
-.description
-  background: none
-
 
 .submitButton
   input
@@ -195,3 +202,15 @@ input
 
   &:hover
     background-color: $primary-compliment
+
+.replySection
+  border: 2px solid $secondary-compliment
+  background-color: $dark-gray
+  padding: 20px
+  margin-bottom: 15px
+  margin-top: 15px
+  border-radius: 15px
+
+  .pReplies
+    padding: 2px
+

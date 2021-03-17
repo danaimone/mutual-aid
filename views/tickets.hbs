@@ -105,27 +105,11 @@
 {{> footer}}
 
 <script>
-
     function modalCall(clickedID) {
         console.log(clickedID);
         //Submit form
         document.getElementById("ticketID").value = clickedID;
         document.getElementById("replyForm").submit();
-
-
-        var title = document.getElementById(clickedID).children[0].children[0].innerHTML;
-        var username = document.getElementById(clickedID).children[1].children[0].innerHTML;
-        var type = document.getElementById(clickedID).children[2].innerHTML;
-        var text = document.getElementById(clickedID).children[4].innerHTML;
-        document.getElementById('ticketTitle').innerHTML = title;
-        document.getElementById('ticketUser').innerHTML = username;
-        document.getElementById('ticketType').innerHTML = type;
-        document.getElementById('ticketDesc').innerHTML = text;
-        document.getElementById('ticketID').value = clickedID;
-        document.getElementById('ticketIDPost').value = clickedID;
-        var ticketModal = document.getElementById('ticketModal');
-        ticketModal.style.display = "block";
-
     }
 
     function modalOpen() {

@@ -27,18 +27,16 @@
                 {{/if}}
             </div>
 
-
-
         </div>
         <div class = "titleContent">
             <p> Add A Reply</p>
             <form action="comment-controller.js" method="POST">
                 <input type="text" id = "replyLog" name="reply" class = "no-outline" placeholder="Enter Reply Text here ... ">
                 <input type="text" id = "ticketIDPost" name = "ticketID" display="none" class="noDisplay" value="{{idOpen}}">
-                <input type="submit" value="Submit">
+                <input class = "submitButton" type="submit" value="Submit">
             </form>
         </div>
-        <li><button type="button" class="action-button secondary" id = "ticketButton">Submit/Close Ticket</button></li>
+        <li><button type="button" class="action-button secondary" id = "ticketButton">Close Ticket</button></li>
     </div>
 </div>
 
@@ -46,7 +44,6 @@
     var modal = document.getElementById("ticketModal");
     var spanX = document.getElementsByClassName("closeX")[0];
     var submit = document.getElementById("ticketButton");
-    var curTicketID = document.getElementById("ticketIDPost").value;
 
     spanX.onclick = function() {
         modal.style.display = "none";
