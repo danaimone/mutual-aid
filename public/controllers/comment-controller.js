@@ -2,13 +2,14 @@ let connection = require('./database');
 let Request = require('tedious').Request;
 let TYPES = require('tedious').TYPES;
 
-/* This method has the same reasoning behind it as
-*  ticketModal.js has please refer to it to understand
-*  why these functions are called here
+/* comment()
+* This will insert a reply, in the future this could be changed to
+* dynamically adding the tickets by finding a way to pass in the
+* new replies variable. At the moment, it is redirected to the
+* tickets page.
 * */
 
 module.exports.comment =function(req,res){
-
     let ticketID = req.body.ticketID;
     let reply = req.body.reply;
     let username = req.cookies.username;
@@ -44,11 +45,9 @@ module.exports.comment =function(req,res){
     /* Wait for previous request to finish, then:
     * Render tickets page without routing there, to include updated ticket replies
     * */
-
     request.on('requestCompleted', function () {
         res.redirect("/tickets");
     })
-
     return;
 }
 

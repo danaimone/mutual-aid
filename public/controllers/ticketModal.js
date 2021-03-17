@@ -32,22 +32,18 @@ module.exports.getReply = function(req, res){
                         }
                         tickets.push(ticket);
                     }
-
                     // Asynchronously return the tickets list
                     resolve(tickets);
                 }
             });
-
             connection.execSql(request);
         });
 
     /* Retrieve replies based on the ticket number */
     let ticketID = parseInt(req.body.ticketID, 10);
-    console.log(typeof ticketID);
-
-    console.log("arrived")
     var replies = [];
-    let sql = `SELECT * FROM Replies WHERE ticketID = @num;`
+    let sql = `SELECT * FROM Replies WHERE ticketID = @num;
+    `
     let request = new Request(sql, (err, rowCount, rows) => {
         if (err) {
             console.log("You encountered an error");
@@ -101,7 +97,3 @@ module.exports.getReply = function(req, res){
     })
     return;
 };
-
-
-
-

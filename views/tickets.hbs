@@ -106,7 +106,6 @@
 
 <script>
     function modalCall(clickedID) {
-        console.log(clickedID);
         //Submit form
         document.getElementById("ticketID").value = clickedID;
         document.getElementById("replyForm").submit();
@@ -115,8 +114,7 @@
     function modalOpen() {
         var open = {{boolOpen}};
         var id = {{idOpen}};
-        console.log(open);
-        if(open) {
+        if (open) {
             var title = document.getElementById(id).children[0].children[0].innerHTML;
             var username = document.getElementById(id).children[1].children[0].innerHTML;
             var type = document.getElementById(id).children[2].innerHTML;
@@ -130,7 +128,6 @@
             var ticketModal = document.getElementById('ticketModal');
             ticketModal.style.display = "block";
         }
-
     }
 
 
