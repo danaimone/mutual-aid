@@ -67,13 +67,12 @@ module.exports.getReply = function(req, res){
                     } else {
                         colName = element.metadata.colName;
                     }
-                    console.log(element.value);
 
                     reply[colName] = element.value;
                 }
-                console.log(reply)
                 replies.push(reply);
             }
+            replies = replies.reverse();
         }
     });
 

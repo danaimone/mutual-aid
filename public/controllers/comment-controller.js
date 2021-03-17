@@ -8,33 +8,6 @@ let TYPES = require('tedious').TYPES;
 * */
 
 module.exports.comment =function(req,res){
-    /* Get all the tickets */
-    const getTickets = () => new Promise(
-        (resolve, reject) => {
-            var tickets = [];
-            let sql = `SELECT * FROM Tickets;`
-            let request = new Request(sql, (err, rowCount, rows) => {
-                if (err) {
-                    reject(err);
-                } else {
-                    for(let i=rows.length-1; i>=0; i--) {
-                        let ticket = {};
-                        let row = rows[i];
-                        for (let j=0; j<row.length; j++) {
-                            let element = row[j];
-                            let colName = element.metadata.colName;
-                            ticket[colName] = element.value;
-                        }
-                        tickets.push(ticket);
-                    }
-
-                    // Asynchronously return the tickets list
-                    resolve(tickets);
-                }
-            });
-
-            connection.execSql(request);
-        });
 
     let ticketID = req.body.ticketID;
     let reply = req.body.reply;
@@ -59,11 +32,6 @@ module.exports.comment =function(req,res){
             return;
         } else {
             console.log(rowCount + " rows affected.");
-            req.flash('error', "" );
-            req.flash('errorMsg', "");
-
-            // TODO: figure out where to redirect
-            res.redirect('/tickets');
             return;
         }
     });
@@ -76,6 +44,7 @@ module.exports.comment =function(req,res){
     /* Wait for previous request to finish, then:
     * Render tickets page without routing there, to include updated ticket replies
     * */
+
     request.on('requestCompleted', function () {
         res.redirect("/tickets");
     })
