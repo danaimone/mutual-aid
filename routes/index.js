@@ -13,17 +13,18 @@ router.get('/', function (req, res, next) {
         layout: false,
         error: req.flash('error'),
         errorMsg: req.flash('errorMsg'),
-        contact: req.flash('contacts')
+        contact: req.flash('contacts'),
+        username: req.cookies.username
     });
 });
 
 router.get('/faq', function (req, res, next) {
-    res.render('faq', {title: 'Tickets', layout: 'faq'});
+    res.render('faq', {title: 'Tickets', layout: 'faq', username: req.cookies.username});
 });
 
 /* GET Map page. */
 router.get('/map', function (req, res, next) {
-    res.render('map', {title: 'Map - Mutual Aid', layout: false});
+    res.render('map', {title: 'Map - Mutual Aid', layout: false, username: req.cookies.username});
 });
 
 router.get('/registration', function (req, res) {

@@ -7,7 +7,13 @@
         <a href="/">Home</a>
         <a href="/map">Map</a>
         <a href="/faq">FAQ</a>
+        {{#unless username}}
+            <a href="#" id="modalButton">Log In</a>
+        {{/unless}}
         <!-- Only display below if user is logged in.-->
+        {{#if username }}
         <a href="/tickets">Tickets</a>
+        <a href="#" id="" onclick="">Log Out</a>
+        {{/if}}
     </nav>
 </header>

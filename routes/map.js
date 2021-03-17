@@ -1,4 +1,4 @@
-/* Routing for Tickets page */
+/* Routing for Maps page */
 
 module.exports = function(app){
   app.get('/map', function(req, res){
