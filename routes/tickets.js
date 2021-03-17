@@ -40,7 +40,7 @@ module.exports = function(app){
               title: 'Tickets - Mutual Aid',
               layout: 'tickets',
               tickets: ok, // `ok` is the name of the returned tickets list
-              replies: [{replyID: 2, username: "hello5", text:"hello2.0"},{replyID: 8, username: "hello1", text:"hello2.0"}],
+              replies: [],
               boolOpen: false,
               idOpen: 0
             });

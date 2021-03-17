@@ -16,17 +16,16 @@
         </div>
         <div class = "descriptionContent">
             <p id = "ticketReplies"> Replies:</p>
-            {{#if replies}}
-                {{#each replies }}
-                    <!--if (eq replyID id)}}-->
-                    <p onload="hideReply({{replyID}})" id = "reply_{{replyID}}" style="color: #000000;"> {{username}}:
-                        {{replyID}} {{text}}</p>
+            <div class="replySection">
+                {{#if replies}}
+                    {{#each replies }}
+                        <p id = "reply_{{replyID}}" class="pReplies"> <b>{{usernameReply}}</b> | {{text}}</p>
+                    {{/each}}
 
-                {{/each}}
-
-            {{else}}
-                <p>There are no comments yet.</p>
-            {{/if}}
+                {{else}}
+                    <p>There are no comments yet.</p>
+                {{/if}}
+            </div>
 
 
 
@@ -48,7 +47,6 @@
     var spanX = document.getElementsByClassName("closeX")[0];
     var submit = document.getElementById("ticketButton");
     var curTicketID = document.getElementById("ticketIDPost").value;
-    console.log(curTicketID)
 
     spanX.onclick = function() {
         modal.style.display = "none";

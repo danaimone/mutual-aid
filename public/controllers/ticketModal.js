@@ -59,16 +59,19 @@ module.exports.getReply = function(req, res){
                 let row = rows[i];
                 for (let j=0; j<row.length; j++) {
                     let element = row[j];
-                    console.log(element.metadata.colName);
-                    // Rename username column
-                    if(element.metadata.colName === "username") {
-                        let colName = "usernameReply";
-                    } else {
-                        let colName = element.metadata.colName;
-                    }
 
-                    replies[colName] = element.value;
+                    // Rename username column
+                    let colName = '';
+                    if(!element.metadata.colName.localeCompare("username")) {
+                        colName = "usernameReply";
+                    } else {
+                        colName = element.metadata.colName;
+                    }
+                    console.log(element.value);
+
+                    reply[colName] = element.value;
                 }
+                console.log(reply)
                 replies.push(reply);
             }
         }
