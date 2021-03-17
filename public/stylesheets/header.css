@@ -14,6 +14,8 @@
 
 .leftnav {
   flex-grow: 1; }
+  .leftnav img {
+    max-height: 3rem; }
 
 a {
   padding: 1em; }

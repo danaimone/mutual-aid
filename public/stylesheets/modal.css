@@ -142,6 +142,10 @@ input {
 .no-outline:focus {
   outline: none; }
 
+/*Added some sass for a hidden element*/
+.noDisplay {
+  display: none; }
+
 .description {
   background: none; }
 
@@ -161,9 +165,9 @@ input {
   padding: 0.5rem;
   margin: 0.25rem;
   text-decoration: none;
-  background-color: #7dceb4;
-  box-shadow: 0 3px #6fad9a; }
+  background-color: #7f58cc;
+  box-shadow: 0 3px #614599; }
   #modalButton:hover {
-    background-color: #6fad9a; }
+    background-color: #614599; }
 
 /*# sourceMappingURL=modal.css.map */
