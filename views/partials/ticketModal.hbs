@@ -1,7 +1,7 @@
 <!-- The Modal -->
 <div id="ticketModal" class="modal">
     <!-- Modal content -->
-    <div class="modal-content" id="0">
+    <div class="modal-content">
         <span class="closeX">&times;</span>
         <div class ="headerPortion">
             <h1 id = "ticketTitle"> Ticket Title Will Go Here </h1>
@@ -35,7 +35,7 @@
             <p> Add A Reply</p>
             <form action="comment-controller.js" method="POST">
                 <input type="text" id = "replyLog" name="reply" class = "no-outline" placeholder="Enter Reply Text here ... ">
-                <input type="text" id = "ticketID" name = "ticketID" display="none" class="noDisplay" value={{id}}>
+                <input type="text" id = "ticketIDPost" name = "ticketID" display="none" class="noDisplay" value="{{idOpen}}">
                 <input type="submit" value="Submit">
             </form>
         </div>
@@ -47,7 +47,7 @@
     var modal = document.getElementById("ticketModal");
     var spanX = document.getElementsByClassName("closeX")[0];
     var submit = document.getElementById("ticketButton");
-    var curTicketID = document.getElementById("ticketID").value;
+    var curTicketID = document.getElementById("ticketIDPost").value;
     console.log(curTicketID)
 
     spanX.onclick = function() {

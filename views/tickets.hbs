@@ -122,8 +122,10 @@
         document.getElementById('ticketType').innerHTML = type;
         document.getElementById('ticketDesc').innerHTML = text;
         document.getElementById('ticketID').value = clickedID;
+        document.getElementById('ticketIDPost').value = clickedID;
         var ticketModal = document.getElementById('ticketModal');
         ticketModal.style.display = "block";
+
     }
 
     function modalOpen() {
@@ -140,6 +142,7 @@
             document.getElementById('ticketType').innerHTML = type;
             document.getElementById('ticketDesc').innerHTML = text;
             document.getElementById('ticketID').value = id;
+            document.getElementById('ticketIDPost').value = id;
             var ticketModal = document.getElementById('ticketModal');
             ticketModal.style.display = "block";
         }
