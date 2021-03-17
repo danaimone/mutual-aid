@@ -1,13 +1,12 @@
 let connection = require('./database');
 let Request = require('tedious').Request;
 let TYPES = require('tedious').TYPES;
+
 module.exports.comment =function(req,res){
-    let ticketUser = req.body.ticketUser;
+    let ticketID = req.body.ticketID;
     let reply = req.body.reply;
+    let username = req.cookies.username;
 
-    /*Get current username*/
-
-    console.log(ticketUser)
 
     if(reply === "") {
         req.flash('error', "" );
@@ -17,8 +16,8 @@ module.exports.comment =function(req,res){
     }
 
     /* var to submit into specific ticket post */
-    var sql = `SELECT ticketTitle FROM ticket where username = @user (reply)
-    VALUES (@user, @reply);`;
+    var sql = `INSERT INTO Replies (ticketID, username, text)
+    VALUES (@ticketID, @user, @reply);`;
 
     var request = new Request(sql, (err, rowCount) => {
         if (err) {
@@ -31,13 +30,16 @@ module.exports.comment =function(req,res){
             console.log(rowCount + " rows affected.");
             req.flash('error', "" );
             req.flash('errorMsg', "");
-            res.redirect('/');
+
+            // TODO: figure out where to redirect
+            res.redirect('/tickets');
             return;
         }
     });
-
+    request.addParameter('ticketID', TYPES.Int, ticketID);
     request.addParameter('reply', TYPES.VarChar, reply);
-    request.addParameter('user', TYPES.VarChar, ticketUser);
+    request.addParameter('user', TYPES.VarChar, username);
 
-    //connection.execSql(request);
+    connection.execSql(request);
 }
+

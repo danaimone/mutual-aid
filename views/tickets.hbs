@@ -6,10 +6,11 @@
     <link rel="stylesheet" href="/stylesheets/header.css">
     <link rel="stylesheet" href="/stylesheets/modal.css">
 </head>
-<body>
+<body onload="modalOpen()">
 
 {{> header}}
 
+<div id="replyData"></div>
 <div id='ticket-wrapper'>
     <div id='ticket-actions'>
         <ul>
@@ -27,7 +28,7 @@
 
         {{#each tickets}}
             <div class="ticket">
-                <div class="ticket-grid" id={{id}}  onClick="modalCall(this.id)">
+                <div class="ticket-grid" id={{id}}  onClick="modalCall(this.id)" >
                     <div class="ticket-title" style="display: none"><h2>{{title}}</h2></div>
                     <div class="ticket-username"><h2>{{username}}</h2></div>
                     <div class="ticket-type">{{type}}</div>
@@ -42,6 +43,9 @@
             </div>
         {{/each}}
 
+        <form method="post" action="ticketModal.js" id="replyForm">
+            <input type="text" id = "ticketID" name = "ticketID" display="none" class="noDisplay" value="">
+        </form>
     </div>
 </div>
 
@@ -101,19 +105,48 @@
 {{> footer}}
 
 <script>
+
     function modalCall(clickedID) {
-      console.log(clickedID);
-      var title = document.getElementById(clickedID).children[0].children[0].innerHTML;
-      var username = document.getElementById(clickedID).children[1].children[0].innerHTML;
-      var type = document.getElementById(clickedID).children[2].innerHTML;
-      var text = document.getElementById(clickedID).children[4].innerHTML;
-      document.getElementById('ticketTitle').innerHTML = title;
-      document.getElementById('ticketUser').innerHTML = username;
-      document.getElementById('ticketType').innerHTML = type;
-      document.getElementById('ticketDesc').innerHTML = text;
-      var ticketModal = document.getElementById('ticketModal')
-      ticketModal.style.display = "block";
+        console.log(clickedID);
+        //Submit form
+        document.getElementById("ticketID").value = clickedID;
+        document.getElementById("replyForm").submit();
+
+
+        var title = document.getElementById(clickedID).children[0].children[0].innerHTML;
+        var username = document.getElementById(clickedID).children[1].children[0].innerHTML;
+        var type = document.getElementById(clickedID).children[2].innerHTML;
+        var text = document.getElementById(clickedID).children[4].innerHTML;
+        document.getElementById('ticketTitle').innerHTML = title;
+        document.getElementById('ticketUser').innerHTML = username;
+        document.getElementById('ticketType').innerHTML = type;
+        document.getElementById('ticketDesc').innerHTML = text;
+        document.getElementById('ticketID').value = clickedID;
+        var ticketModal = document.getElementById('ticketModal');
+        ticketModal.style.display = "block";
     }
+
+    function modalOpen() {
+        var open = {{boolOpen}};
+        var id = {{idOpen}};
+        console.log(open);
+        if(open) {
+            var title = document.getElementById(id).children[0].children[0].innerHTML;
+            var username = document.getElementById(id).children[1].children[0].innerHTML;
+            var type = document.getElementById(id).children[2].innerHTML;
+            var text = document.getElementById(id).children[4].innerHTML;
+            document.getElementById('ticketTitle').innerHTML = title;
+            document.getElementById('ticketUser').innerHTML = username;
+            document.getElementById('ticketType').innerHTML = type;
+            document.getElementById('ticketDesc').innerHTML = text;
+            document.getElementById('ticketID').value = id;
+            var ticketModal = document.getElementById('ticketModal');
+            ticketModal.style.display = "block";
+        }
+
+    }
+
+
     var add = document.getElementById("modalButton");
     var tickModal = document.getElementById("addModal");
     add.onclick = function() {
@@ -133,5 +166,6 @@
         tickModal.style.display = "none";
     }
 </script>
+
 </body>
 </html>

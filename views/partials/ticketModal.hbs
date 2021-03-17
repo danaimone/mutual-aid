@@ -1,7 +1,7 @@
 <!-- The Modal -->
 <div id="ticketModal" class="modal">
     <!-- Modal content -->
-    <div class="modal-content">
+    <div class="modal-content" id="0">
         <span class="closeX">&times;</span>
         <div class ="headerPortion">
             <h1 id = "ticketTitle"> Ticket Title Will Go Here </h1>
@@ -16,13 +16,26 @@
         </div>
         <div class = "descriptionContent">
             <p id = "ticketReplies"> Replies:</p>
-            <p id = "ticketReplies" style="color: #000000;"> Replies Will Go Here....</p>
+            {{#if replies}}
+                {{#each replies }}
+                    <!--if (eq replyID id)}}-->
+                    <p onload="hideReply({{replyID}})" id = "reply_{{replyID}}" style="color: #000000;"> {{username}}:
+                        {{replyID}} {{text}}</p>
+
+                {{/each}}
+
+            {{else}}
+                <p>There are no comments yet.</p>
+            {{/if}}
+
+
+
         </div>
         <div class = "titleContent">
             <p> Add A Reply</p>
             <form action="comment-controller.js" method="POST">
                 <input type="text" id = "replyLog" name="reply" class = "no-outline" placeholder="Enter Reply Text here ... ">
-                <input type="text" id = "ticketUser" name = "ticketUser" display="none" class="noDisplay" value="{}">
+                <input type="text" id = "ticketID" name = "ticketID" display="none" class="noDisplay" value={{id}}>
                 <input type="submit" value="Submit">
             </form>
         </div>
@@ -34,6 +47,9 @@
     var modal = document.getElementById("ticketModal");
     var spanX = document.getElementsByClassName("closeX")[0];
     var submit = document.getElementById("ticketButton");
+    var curTicketID = document.getElementById("ticketID").value;
+    console.log(curTicketID)
+
     spanX.onclick = function() {
         modal.style.display = "none";
     }
@@ -46,4 +62,5 @@
             modal.style.display = "none";
         }
     }
+
 </script>

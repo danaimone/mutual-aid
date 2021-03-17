@@ -4,6 +4,7 @@ var authenticateController=require("../public/controllers/authenticate-controlle
 var registerController=require("../public/controllers/register-controller");
 var commentController=require("../public/controllers/comment-controller");
 var contactsController=require("../public/controllers/send-email");
+var ticketModal=require("../public/controllers/ticketModal");
 let ticketsController=require("../public/controllers/tickets-controller");
 
 /* GET home page. */
@@ -34,5 +35,6 @@ router.post('/register-controller.js', registerController.register);
 router.post('/authenticate-controller.js', authenticateController.authenticate);
 router.post('/comment-controller.js', commentController.comment);
 router.post('/send-email', contactsController.sendmail);
+router.post('/ticketModal.js', ticketModal.getReply);
 
 module.exports = router;
