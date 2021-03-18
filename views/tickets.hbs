@@ -1,0 +1,148 @@
+<html>
+<head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/stylesheets/tickets.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/modal.css">
+</head>
+<body onload="modalOpen()">
+
+{{> header}}
+
+<div id="replyData"></div>
+<div id='ticket-wrapper'>
+    <div id='ticket-actions'>
+        <ul>
+            <li><button type="button" class="action-button primary" id = "modalButton">+ ADD A TICKET</button></li>
+        </ul>
+    </div>
+
+    <div id='tickets'>
+
+    {{#if tickets}}
+        {{#each tickets}}
+            <div class="ticket">
+                <div class="ticket-grid" id={{id}}  onClick="modalCall(this.id)" >
+                    <div class="ticket-title" style="display: none"><h2>{{title}}</h2></div>
+                    <div class="ticket-username"><h2>{{username}}</h2></div>
+                    <div class="ticket-type">{{type}}</div>
+                    <div class="ticket-picture"></div>
+                    <div class="ticket-main-text">{{description}}</div>
+                    <div class="ticket-contribute">
+                        <button>
+                            +
+                        </button>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+
+        <form method="post" action="ticketModal.js" id="replyForm">
+            <input type="text" id = "ticketID" name = "ticketID" display="none" class="noDisplay" value="">
+        </form>
+    {{else}}
+        <div class="err-grid">
+            <div id='no-tickets'>
+                <span>NO Tickets Currently - Here are some ways to get involved</span>
+            </div>
+            <div id='no-tickets-error' class="error">
+                <a href="/" class="error error-button">Mutual Aid Home</a>
+                <a href="/map" class="error error-button">Mutual Aid Map</a>
+            </div>
+        </div>
+    {{/if}}
+
+
+    </div>
+</div>
+
+
+<!-- The Modal -->
+<div id="addModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+  <form method="POST" action="tickets-controller.js" id="ticket-form">
+  <span class="close">&times;</span>
+    <div class ="headerPortion">
+      <h1> Add A Ticket </h1>
+    </div>
+    <div class = "radioButtons">
+        <label class="radio-inline">
+          <input type="radio" name="type" value="Request" checked>Request
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="type" value="Service">Service
+        </label>
+    </div>
+    <div class = "titleContent">
+      <h3> Title </h3>
+      <input type="text" class = "no-outline" name = "title" placeholder="Ticket title..." id = "title">
+    </div>
+    <div class = "descriptionContent">
+      <h3> Description </h3>
+      <textarea name="description" rows="7" cols="50" class="no-outline description" placeholder="Ticket description..." id="description"></textarea>
+    </div>
+    <div class = "submitButton" style= "float: right;">
+        <li><button  type="submit" form="ticket-form" class="action-button secondary" id="submitPost">ADD TICKET</button></li>
+    </div>
+  </form>
+  </div>
+</div>
+
+{{> loginModals}}
+{{> ticketModal}}
+{{> footer}}
+
+<script>
+    function modalCall(clickedID) {
+        //Submit form
+        document.getElementById("ticketID").value = clickedID;
+        document.getElementById("replyForm").submit();
+    }
+
+    function modalOpen() {
+        var open = {{boolOpen}};
+        var id = {{idOpen}};
+        if (open) {
+            var title = document.getElementById(id).children[0].children[0].innerHTML;
+            var username = document.getElementById(id).children[1].children[0].innerHTML;
+            var type = document.getElementById(id).children[2].innerHTML;
+            var text = document.getElementById(id).children[4].innerHTML;
+            document.getElementById('ticketTitle').innerHTML = title;
+            document.getElementById('ticketUser').innerHTML = username;
+            document.getElementById('ticketType').innerHTML = type;
+            document.getElementById('ticketDesc').innerHTML = text;
+            document.getElementById('ticketID').value = id;
+            document.getElementById('ticketIDPost').value = id;
+            var ticketModal = document.getElementById('ticketModal');
+            ticketModal.style.display = "block";
+        }
+    }
+
+    var add = document.getElementById("modalButton");
+    var tickModal = document.getElementById("addModal");
+    add.onclick = function() {
+        tickModal.style.display = "block";
+    }
+    window.onclick = function(event) {
+        if (event.target == tickModal) {
+            tickModal.style.display = "none";
+        }
+        if (event.target == ticketModal) {
+            modal.style.display = "none";
+        }
+    }
+    var spanX = document.getElementsByClassName("close")[0];
+    spanX.onclick = function() {
+        tickModal.style.display = "none";
+
+    }
+    var sub = document.getElementById("submitPost");
+    sub.onclick = function() {
+        tickModal.style.display = "none";
+    }
+</script>
+
+</body>
+</html>

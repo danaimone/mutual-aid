@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/stylesheets/faq.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
+    <link rel="stylesheet" href="/stylesheets/footer.css">
+    <link rel="stylesheet" href="/stylesheets/modal.css">
+    <title>FAQ Page</title>
+</head>
+
+<body>
+    {{> header}}
+
+    <div class="grid-container">
+        <div class="info">
+            <div class="tab">
+                <button class="tablinks" id='defaultOpen' onclick="openTab(event, 'Request')">Request</button>
+                <button class="tablinks" onclick="openTab(event, 'Volunteer')">Volunteer</button>
+                <button class="tablinks" onclick="openTab(event, 'Organize')">Organize</button>
+            </div>
+            <div id="Request" class="tabcontent">
+                <h3>Do I have to qualify to request aid?</h3>
+                <p>No. As a community, we hope to come together to support and help one another without any questions asked.
+                A community member should feel comfortable reaching out for any type of need they may have. No matter who
+              you are, you deserve to be helped and be supported by those around you. </p>
+                <h3>What can I request aid for?</h3>
+                <p>You can request aid for anything! Anything that you may need that you cannot gain access to or are
+                struggling to gain access to for any reason can be requested on the ticket page. No request is too big
+              or too small to make! Some examples of commonly mutual aid requests are: Groceries/food needs, monetery donations
+            household supplies, medical supplies, personal hygiene products, and clothing products. </p>
+                <h3>How will I receive responses to my aid request?</h3>
+                <p>Responses to posts are given in two ways. Users can either choose to respond directly to you via
+                direct message or replies can be made publicly in the "reply" section of the ticket. In order to view
+              the replies that are made on the ticket, you must navigate to the ticket you created and view it. </p>
+                <h3>Do I have to include my profile with my request?</h3>
+                <p>No. If there is any reason that makes you feel uncomfortable with including your name or any
+                  personal information on your request, you can choose to post anonymously. However, to protect the safety
+                  of other users, in order to post anonymously you must have previously had another interaction (publicly)
+                  within the site (this could include writing a reply, responding to an aid request, or making another public post).
+                 </p>
+            </div>
+            <div id="Volunteer" class="tabcontent">
+                <h3>How can I offer help to other community members?</h3>
+                <p>If you are looking to volunteer your services, you can make a post on the "Tickets" page and choose the
+                 "Services" option when creating your ticket. All that you need to include on the ticket is what kind of
+                 service you are offering and a short description (if you would like). You can also offer your services by
+                 responding to another users' "Request" post. If a user in your community posts a request that you are able to
+               help fulfill, you can either direct message that user and offer to help or you can reply to the user's post.</p>
+                <h3>What kind of help can I offer?</h3>
+                <p>You can offer help and services for anything! Anything that you have that you would like to share with the community
+                  is very appreciated! This can be in the form of skills or also goods and monetary donations. Some examples of services that
+                  are often offered in mutual aid groups are: Food products that you don't need, produce that a user has excess of, homecooked
+                  meals, clothing donations, ability to volunteer your time, or monetary donations. All we ask is that you please do not
+                  request anything from a user in return for your services.
+                  </p>
+                <h3>How do I deliver my services to a community member?</h3>
+                <p>Unfortunately, we do not provide an ability to exchange products through our website. Once a request has been fulfilled
+                by another community member, you will be connected with the user who made the request. From there, you and the other user
+                can privately message to figure out how to recieve the services being given. In order to attempt to protect our users during these
+                exchanges, we do verify every user's profile on our website.</p>
+            </div>
+            <div id="Organize" class="tabcontent">
+                <h3>Can I organize my own mutual aid group?</h3>
+                <p>Starting a mutual aid group is simple and all that is required is a knowledge of how mutual aid groups are conducted.
+                   If you would like to  create a mutual aid group in your area, you can educate yourself via the internet and any other resources
+                   as to how mutual aid works. It may also be helpful to reach out to other mutual aid groups to understand how they started
+                   and grew their network. After you do this, you need to generate a group of users/supporters in your area. When you have a pool of
+                   users, you can then provide them the tools to interact to provide and support one another. Here is a link with helpful information
+                   on starting your own mutual aid network:  <a href="https://www.afsc.org/blogs/news-and-commentary/how-to-create-mutual-aid-network">Creating A Mutual Aid Network</a></p>
+                <h3>What are other ways to get involved?</h3>
+                <p>You can participate in mutual aid without being a part of a mutual aid group. Mutual aid can simply be reaching out to those
+                around you to see if anyone has needs that you can help provide. It can also be volunteering in your community such as helping out
+                at your local food bank or homeless shelter. You can also participate by donating to clothing drives in your community or other non-profit
+                donation sites. The point of mutual aid is being involved in your community and helping others and there are so many opportunities
+                to do so in a lot of different ways. Here is a link to some volunteering opportunities in Bellingham:   <a href="https://www.whatcomvolunteer.org">Volunteer Whatcom County</a></p>
+            </div>
+
+        </div>
+        <div class="title_faq">
+            <h2>Frequently asked Questions</h2>
+            <p>These are frequently asked questions regarding mutual aid and how to participate in mutual aid in your community.
+               The questions are broken down into questions regarding requesting aid, receiving aid, and how to organize/get involved
+               in mutual aid in other ways. If you have a question that you do not see on this page, please message your question to us
+               via the "contact" link and we will answer your question as well as add it to the FAQ page.</p>
+        </div>
+    </div>
+
+    {{> loginModals}}
+    {{> footer}}
+
+    <script>
+        // open tab first
+        document.getElementById("defaultOpen").click();
+
+        //function to switch tabs
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            //set all tabs to display none
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>

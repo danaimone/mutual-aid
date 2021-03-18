@@ -1,0 +1,19 @@
+<link rel="icon" type="image/png" href="images/favicon.png">
+<header class="navigation">
+    <nav class="leftnav">
+         <a href="/"><img src="images/logo.png"></a>
+    </nav>
+    <nav class="rightnav">
+        <a href="/">Home</a>
+        <a href="/map">Map</a>
+        <a href="/faq">FAQ</a>
+        {{#unless username}}
+            <a href="#" class="loginButton">Log In</a>
+        {{/unless}}
+        <!-- Only display below if user is logged in.-->
+        {{#if username }}
+        <a href="/tickets">Tickets</a>
+        <a href="/" class="logoutButton" id="logOut">Log Out</a>
+        {{/if}}
+    </nav>
+</header>

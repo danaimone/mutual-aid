@@ -1,0 +1,103 @@
+$primary: #7dceb4
+$secondary: #7f58cc
+$primary-compliment: #6fad9a
+$secondary-compliment: #614599
+$gray: #f5f5f5
+$dark-gray: #404040
+$dark-gray-compliment: #404040
+$font-family: Arial, Helvetica, sans-serif
+
+body, html, .grid-container
+  margin: 0
+  height: 100%
+  width: 100%
+  font-family: $font-family
+
+body, html
+  margin: 0
+  height: 100%
+
+button
+  cursor: pointer
+  border: none
+
+.grid-container
+  display: grid
+  grid-template-columns: 1fr
+  grid-template-rows: 1fr 2fr
+  gap: 0px 0px
+  grid-template-areas: "title_faq" "info"
+  background-color: #fff
+  height: 85%
+
+
+.infoBlock
+  display: inline-block
+  align-items: center
+  align-content: center
+  grid-area: info
+  padding: 8%
+  padding-top: 4%
+  .imageLogo
+    display: block
+    margin-right: auto
+    margin-left: auto
+    width: 20%
+    padding-bottom: 5%
+    padding-top: 5%
+  .imageTicket
+    display: block
+    margin-right: auto
+    margin-left: auto
+    width: 45%
+    padding-bottom: 5%
+    padding-top: 5%
+  a
+
+    color: white
+    border-radius: 10px
+    padding: 0.5rem
+    margin: 0
+    text-decoration: none
+    background-color: $primary
+    box-shadow: 0 3px $primary-compliment
+    &:hover
+      background-color: $primary-compliment
+    &:active
+    background-color: $primary
+
+  button
+    color: white
+    border-radius: 10px
+    padding: 0.5rem
+    margin: 0
+    text-decoration: none
+    background-color: $primary
+    box-shadow: 0 3px $primary-compliment
+    &:hover
+      background-color: $primary-compliment
+    &:active
+    background-color: $primary
+
+.welcomeBlock
+  display: flex
+  grid-area: title_faq
+  background-color: $gray
+  padding: 8%
+  box-shadow: 2px 2px 5px rgb(228, 228, 228)
+  align-items: center
+  justify-content: center
+
+  .welcomeContent
+    display: block
+    text-align: center
+  h1
+    color: $secondary
+  p
+    font-size: 1.5em
+
+//.title
+//  grid-area: title
+//  display: flex
+//  padding-left: 5%
+//  align-items: center

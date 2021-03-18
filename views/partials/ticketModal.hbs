@@ -1,0 +1,82 @@
+<!-- The Modal -->
+<div id="ticketModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="closeX">&times;</span>
+        <div class ="headerPortion">
+            <h1 id = "ticketTitle"> Ticket Title Will Go Here </h1>
+        </div>
+        <div class ="headerPortion">
+            <h3 id = "ticketType" style = "color: #7f58cc"> Ticket Type </h3>
+            <h3 id = "ticketUser"> Username </h3>
+        </div>
+        <div class = "titleContent">
+            <p id = "ticketReplies"> Description:</p>
+            <p id = "ticketDesc" style="color: #000000;"> Description </p>
+        </div>
+        <div class = "descriptionContent">
+            <p id = "ticketReplies"> Replies:</p>
+            <div class="replySection">
+                {{#if replies}}
+                    {{#each replies }}
+                        <p id = "reply_{{replyID}}" class="pReplies"> <b>{{usernameReply}}</b> | {{text}}</p>
+                    {{/each}}
+
+                {{else}}
+                    <p>There are no comments yet.</p>
+                {{/if}}
+            </div>
+
+        </div>
+        <div class = "titleContent">
+            <p> Add A Reply</p>
+            <form action="comment-controller.js" method="POST">
+                <label for="replyLog" class="noDisplay"></label>
+
+                <textarea onkeyup="charsLeft(this)" maxlength="3000" rows="3" cols="50" id = "replyLog" name="reply" class = "no-outline"
+                                                        placeholder="Enter Reply Text here ... "></textarea>
+                <label class="noDisplay" for="ticketIDPost"></label>
+
+                <input type="text" id = "ticketIDPost" name = "ticketID" class="noDisplay" value="{{idOpen}}">
+                <input class = "submitButton" type="submit" value="Submit">
+            </form>
+            <p id="charCount">0 / 3000</p>
+
+        </div>
+        <li><button type="button" class="action-button secondary" id = "ticketButton">Close Ticket</button></li>
+    </div>
+</div>
+
+<div id="exit">
+    <form id="redirectForm" action="/tickets" method="GET"></form>
+</div>
+
+<script>
+    var modal = document.getElementById("ticketModal");
+    var spanX = document.getElementsByClassName("closeX")[0];
+    var submit = document.getElementById("ticketButton");
+
+
+    spanX.onclick = function() {
+        modal.style.display = "none";
+        //Submit form
+        document.getElementById("redirectForm").submit();
+
+    }
+    submit.onclick = function() {
+        modal.style.display = "none";
+        document.getElementById("redirectForm").submit();
+
+
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.getElementById("redirectForm").submit();
+        }
+    }
+    function charsLeft(obj) {
+        document.getElementById("charCount").innerHTML = obj.value.length + " / 3000"
+    }
+
+</script>
