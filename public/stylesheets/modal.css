@@ -1,3 +1,9 @@
+textarea {
+  background: none;
+  border-radius: 15px;
+  padding: 5px;
+  text-align: left; }
+
 .modal {
   display: none;
   position: fixed;
@@ -153,6 +159,8 @@ input {
   outline: none; }
 
 .noDisplay {
+  margin: 0;
+  padding: 10px;
   display: none; }
 
 .submitButton input {
@@ -185,5 +193,15 @@ input {
   border-radius: 15px; }
   .replySection .pReplies {
     padding: 2px; }
+
+.titleContent form {
+  display: flex;
+  justify-content: flex-start; }
+
+.titleContent .no-outline {
+  margin-left: 0; }
+
+.titleContent #charCount {
+  font-size: 12px; }
 
 /*# sourceMappingURL=modal.css.map */
