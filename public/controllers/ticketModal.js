@@ -87,7 +87,8 @@ module.exports.getReply = function(req, res){
                     tickets: ok, // `ok` is the name of the returned tickets list
                     replies: replies,
                     boolOpen: true,
-                    idOpen: ticketID
+                    idOpen: ticketID,
+                    username: req.cookies.username
                 });
 
             })
